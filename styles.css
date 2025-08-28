@@ -1,4 +1,22 @@
 .hero-title {
     background-color: #8888889a;
-    padding-top: 3rem;
+    padding: 1.5rem;  /* root em, medida relativa que se basa en el tamaño fuente del elemento raiz*/
 }
+
+.carousel {
+   width: 100vw;/* 100% del viewport width */
+    margin-left: calc(-50vw + 50%); /* Centra el carrusel y lo extiende */
+    position: relative;
+  }
+  .carousel-inner {
+    height: 500px;
+    overflow: hidden;
+  }
+  .carousel-item img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+
