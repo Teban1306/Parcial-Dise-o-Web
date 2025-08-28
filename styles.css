@@ -1,0 +1,37 @@
+/*vh= view port osea pantalla
+clamp= permite valores responsivos clamp(2rem, 5vw, 4rem) = mínimo 2rem, preferido 5% del viewport, máximo 4rem
+*/
+.hero-title {
+    background-color: rgb(162, 187, 138);
+    min-height: 20vh;
+    padding: 1.5rem;  /* root em, medida relativa que se basa en el tamaño fuente del elemento raiz*/
+}
+.display-1{
+    font-size: clamp(2rem, 5vw, 4rem); /* Se adapta al tamaño de pantalla */
+    font-weight: 600;
+    line-height: 1.2;
+}
+.lead{
+    font-size: clamp(1rem, 3vw, 2rem); /* Se adapta al tamaño de pantalla */
+    font-weight: 200;
+    line-height: 1.4;
+}
+.carousel {
+   width: 100%;/* 100% del viewport width */
+    margin:0; /* Centra el carrusel y lo extiende */
+    position: relative;
+  }
+  .carousel-inner {
+    height: 60vh;
+    min-height: 300px; /* Altura mínima para pantallas muy pequeñas */
+    max-height: 500px; /* Altura máxima para pantallas grandes */
+    overflow: hidden;
+  }
+  .carousel-item img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+
