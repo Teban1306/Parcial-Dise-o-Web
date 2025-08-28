@@ -1,3 +1,6 @@
+/*vh= view port osea pantalla
+clamp= permite valores responsivos clamp(2rem, 5vw, 4rem) = mínimo 2rem, preferido 5% del viewport, máximo 4rem
+*/
 .hero-title {
     background-color: rgb(162, 187, 138);
     min-height: 20vh;

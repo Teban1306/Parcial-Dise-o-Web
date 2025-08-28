@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -79,25 +80,88 @@
         <div class="col-12 text-left">
             <h2 class="display-4">LLenar de info acerca de esta secciion y asi</h2>
             <p class="lead">Sollenar</p>
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ul>
         </div>
     </div>
 </section>
+<!-- Botón para mostrar/ocultar formulario -->
+<div class="text-left my-4">
+  <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#contactForm" aria-expanded="false" aria-controls="contactForm">
+    <span id="toggleText">Crear nueva brigada</span>
+  </button>
+</div>
+
+<!-- Formulario colapsable -->
+<div class="collapse" id="contactForm">
+  <div class="container-fluid my-4">
+    <div class="row justify-content-left p-4">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Nueva Brigada</h5>
+            <button type="button" class="btn-close" data-bs-toggle="collapse" data-bs-target="#contactForm" aria-label="Cerrar formulario"></button>
+          </div>
+          <div class="card-body">
+            <form>
+  <!-- Campo: Título de la brigada -->
+  <div class="mb-3">
+    <label for="tituloBrigada" class="form-label">Título de la brigada</label>
+    <input type="text" class="form-control" id="tituloBrigada" aria-describedby="tituloHelp" required>
+    <div id="tituloHelp" class="form-text">Ingresa un nombre descriptivo para identificar la brigada.</div>
+  </div>
+
+  <!-- Campo: Jefe brigadista -->
+  <div class="mb-3">
+    <label for="jefeBrigadista" class="form-label">Jefe brigadista</label>
+    <select class="form-select" id="jefeBrigadista" aria-describedby="jefeHelp" required>
+      <option value="">Selecciona al jefe de brigadista</option>
+      <option value="1">Jefe 1</option>
+      <option value="2">Jefe 2</option>
+      <option value="3">Jefe 3</option>
+    </select>
+    <div id="jefebrigada" class="form-text">Selecciona al jefe de brigadista.</div>
+  </div>
+
+  <!-- Campo: Email del jefe -->
+  <div class="mb-3">
+    <label for="emailJefe" class="form-label">Email del jefe</label>
+    <input type="email" class="form-control" id="emailJefe" aria-describedby="emailHelp" required>
+    <div id="emailHelp" class="form-text">Este email se usará para comunicaciones oficiales.</div>
+  </div>
+
+  <!-- Campo: Integrantes -->
+  <div class="mb-3">
+    <label for="integrantes" class="form-label">Integrantes de la brigada</label>
+    <textarea class="form-control" id="integrantes" rows="4" aria-describedby="integrantesHelp" required></textarea>
+    <div id="integrantesHelp" class="form-text">Lista los nombres de todos los integrantes, uno por línea.</div>
+  </div>
+
+  <!-- Checkbox: Términos y condiciones -->
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="terminos" required>
+    <label class="form-check-label" for="terminos">
+      Acepto los términos y condiciones del registro
+    </label>
+  </div>
+
+  <!-- Botones -->
+  <div class="d-flex gap-2">
+    <button type="submit" class="btn btn-primary">Guardar Brigada</button>
+  </div>
+</form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-
-
-
-
-<!-- Sección de Servicios - USA CONTAINER para contenido centrado 
-    <section class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5">
-                    <h2 class="display-4">Nuestros Servicios</h2>
-                    <p class="lead">Soluciones integrales para tu empresa</p>
-                </div>
-            </div>
-            <div class="row g-4">
+<!--<div class="row g-4">
                 <div class="col-md-4">
                     <div class="card h-100">
                         <div class="card-body text-center">
@@ -123,9 +187,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
--->
+        </div>-->
 
 </body>
 </html>
