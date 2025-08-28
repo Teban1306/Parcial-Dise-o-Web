@@ -2,7 +2,7 @@
 clamp= permite valores responsivos clamp(2rem, 5vw, 4rem) = mínimo 2rem, preferido 5% del viewport, máximo 4rem
 */
 .hero-title {
-    background-color: rgb(162, 187, 138);
+    background-color: rgb(146, 224, 74);
     min-height: 20vh;
     padding: 1.5rem;  /* root em, medida relativa que se basa en el tamaño fuente del elemento raiz*/
 }
