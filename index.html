@@ -131,50 +131,71 @@
 
 <!-- Formulario colapsable -->
 <div class="collapse" id="contactForm">
-  <div class="container-fluid my-4">
+  <div class="container-fluid my-4 align-items-center">
     <div class="row justify-content-left p-4">
       <div class="col-md-8">
         <div class="card">
           <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">Nueva Brigada</h5>
+            <h5 class="mb-0"> Agregar nueva Brigada</h5>
             <button type="button" class="btn-close" data-bs-toggle="collapse" data-bs-target="#contactForm" aria-label="Cerrar formulario"></button>
           </div>
           <div class="card-body">
-            <form>
+            <form style="align-items: center;">
   <!-- Campo: Título de la brigada -->
-  <div class="mb-3">
+  
+
+  <!-- Campos: Jefe brigadista e Integrantes (lado a lado) -->
+  <div class="row mb-3">
+    <div class="col-md-6 mb-3">
     <label for="tituloBrigada" class="form-label">Título de la brigada</label>
     <input type="text" class="form-control" id="tituloBrigada" aria-describedby="tituloHelp" required>
     <div id="tituloHelp" class="form-text">Ingresa un nombre descriptivo para identificar la brigada.</div>
   </div>
-
-  <!-- Campo: Jefe brigadista -->
-  <div class="mb-3">
-    <label for="jefeBrigadista" class="form-label">Jefe brigadista</label>
-    <select class="form-select" id="jefeBrigadista" aria-describedby="jefeHelp" required>
-      <option value="">Selecciona al jefe de brigadista</option>
-      <option value="1">Jefe 1</option>
-      <option value="2">Jefe 2</option>
-      <option value="3">Jefe 3</option>
-    </select>
-    <div id="jefebrigada" class="form-text">Selecciona al jefe de brigadista.</div>
+    <!-- Jefe brigadista -->
+    <div class="col-md-6">
+      <label for="jefeBrigadista" class="form-label">Jefe brigadista</label>
+      <select class="form-select" id="jefeBrigadista" aria-describedby="jefeHelp" required>
+        <option value="">Selecciona un jefe</option>
+        <option value="1">Jefe 1</option>
+        <option value="2">Jefe 2</option>
+        <option value="3">Jefe 3</option>
+      </select>
+      <div id="jefeHelp" class="form-text">Selecciona al jefe de la brigada.</div>
+    </div>
+    
+    <!-- Integrantes de la brigada -->
+    <div class="col-md-6">
+      <label for="integrantesBrigada" class="form-label">Integrantes de la brigada</label>
+      <select class="form-select" id="integrantesBrigada" aria-describedby="integrantesHelp" multiple required>
+        <option value="1">Investigador 1</option>
+        <option value="2">Investigador 2</option>
+        <option value="3">Investigador 3</option>
+        <option value="4">Investigador 4</option>
+        <option value="5">Investigador 5</option>
+      </select>
+      <div id="integrantesHelp" class="form-text">Elije los investigadores que conforman la brigada. Mantén presionado Ctrl para seleccionar múltiples integrantes.</div>
+    </div>
+    <div class="col-md-6">
+      <label for="integrantesBrigada" class="form-label">Ubicacion</label>
+      <select class="form-select" id="integrantesBrigada" aria-describedby="Ubicacionhelp">
+        <option value="1">Ubicacion 1</option>
+        <option value="2">Ubicacion 2</option>
+        <option value="3">Ubicacion 3</option>
+        <option value="4">Ubicacion 4</option>
+        <option value="5">Ubicacion 5</option>
+      </select>
+      <div id="Ubicacionhelp" class="form-text">Elije la ubicacion de la brigada.</div>
+    </div>
+    <div class="col-md-6 mb-3">
+    <label for="conglomerado" class="form-label">Id conglomerado</label>
+    <input type="text" class="form-control" id="conglomerado" aria-describedby="conglomeradohelp" required >
+    <div id="conglomeradohelp" class="form-text">Escribe el id del conglomerado</div>
   </div>
-
-  <!-- Campo: Email del jefe -->
-  <div class="mb-3">
-    <label for="emailJefe" class="form-label">Email del jefe</label>
-    <input type="email" class="form-control" id="emailJefe" aria-describedby="emailHelp" required>
-    <div id="emailHelp" class="form-text">Este email se usará para comunicaciones oficiales.</div>
+  <div class="col-md-6 mb-3">
+    <label for="descripcionBrigada" class="form-label">Descripción de la brigada</label>
+    <input type="text" class="form-control" id="descripcionBrigada" aria-describedby="descripcionHelp" required >
+    <div id="descripcionHelp" class="form-text">Escribe una breve descripción de la brigada.</div>
   </div>
-
-  <!-- Campo: Integrantes -->
-  <div class="mb-3">
-    <label for="integrantes" class="form-label">Integrantes de la brigada</label>
-    <textarea class="form-control" id="integrantes" rows="4" aria-describedby="integrantesHelp" required></textarea>
-    <div id="integrantesHelp" class="form-text">Lista los nombres de todos los integrantes, uno por línea.</div>
-  </div>
-
-  <!-- Checkbox: Términos y condiciones -->
   <div class="mb-3 form-check">
     <input type="checkbox" class="form-check-input" id="terminos" required>
     <label class="form-check-label" for="terminos">
@@ -186,6 +207,16 @@
   <div class="d-flex gap-2">
     <button type="submit" class="btn btn-primary">Guardar Brigada</button>
   </div>
+  </div>
+  
+  
+  </div>
+  
+
+  
+
+  <!-- Checkbox: Términos y condiciones -->
+  
 </form>
           </div>
         </div>

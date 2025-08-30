@@ -72,7 +72,9 @@ clamp= permite valores responsivos clamp(2rem, 5vw, 4rem) = mínimo 2rem, prefer
   padding: 1rem;
   margin-left: 1rem;margin-right: 1rem; }
 
-
+#descripcionBrigada{
+  height: 60px;
+}
 
  
 
