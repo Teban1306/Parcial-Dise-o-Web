@@ -10,10 +10,12 @@
     <script src="script.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav id="navbar" class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
         <div class="container-fluid">
-            <img src="img/ideam.png" alt="Logo IFN" class="navbar-brand" style="height: 60px; width: auto;">
-            <a class="navbar-brand">IFN Gestor de conglomerados</a>
+            <a class="navbar-brand d-flex align-items-center" >
+                <img src="img/ideam.png" alt="Logo IFN" style="height: 4rem; width: auto; margin-right: 2rem;">
+                <span>IFN Gestor de Brigadas</span>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -42,8 +44,8 @@
     <div class="container-fluid h-100 d-flex align-items-center">
         <div class="row w-100">
             <div class="col-12 text-center">
-                <h1 class="display-1 mb-3">Bienvenido a IFN Gestor de conglomerados</h1>
-                <p class="lead mb-4">Descubre nuestras herramientas y servicios para optimizar la gestión de tu conglomerado.</p>
+                <h1 class="display-1 mb-3">Bienvenido a IFN Gestor de Brigadas</h1>
+                <p  id="parrafo-hero" class="lead mb-4">Descubre nuestras herramientas y servicios para optimizar la gestión de tu conglomerado.</p>
                 
             </div>
         </div>
@@ -76,6 +78,25 @@
   </button>
 </div>
 <section id="section1" class="container-fluid border border-3 rounded-3 p-4 my-4">
+    <div class="row align-items-center">
+        <div class="col-lg-8 col-md-12">
+            <h2 id="title1" class="display-4">¿Qué es un conglomerado en el IFN?</h2>
+            <p class="lead">En el marco del IFN, un conglomerado es una unidad de muestreo que consiste en un conjunto de 
+              subparcelas circulares distribuidas espacialmente dentro de un polígono (cuadro de 24 km × 24 km) 
+              seleccionado probabilísticamente. Cada conglomerado ocupa aproximadamente 0,35 ha y está conformado por 
+              cinco subparcelas circulares de radio ~15 m, dispuestas en forma de cruz, separadas entre sí por cerca de 80 m. 
+              Estas unidades permiten estimaciones representativas sobre la vegetación, biomasa, diversidad y composición forestal a nivel regional y nacional
+            </p>
+        </div>
+        <div id="imgcon" class="col-lg-4 text-center col-md-12 text-center">
+            <img src="img/conglomerado.jpg" alt="Conglomerado" class="img-fluid rounded-3">
+        </div>
+    </div>
+
+        </div>
+    </div>
+</section>
+<section id="section2" class="container-fluid border border-3 rounded-3 p-4 my-4">
     <div class="row">
         <div class="col-12 text-left">
             <h2 class="display-4">LLenar de info acerca de esta secciion y asi</h2>
