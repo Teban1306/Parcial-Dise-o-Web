@@ -10,17 +10,19 @@
     <script src="script.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav id="navbar" class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
         <div class="container-fluid">
-            <img src="img/ideam.png" alt="Logo IFN" class="navbar-brand" style="height: 60px; width: auto;">
-            <a class="navbar-brand">IFN Gestor de conglomerados</a>
+            <a class="navbar-brand d-flex align-items-center" >
+                <img src="img/ideam.png" alt="Logo IFN" style="height: 4rem; width: auto; margin-right: 2rem; margin-left: 2rem;">
+                <span>IFN Gestor de Brigadas</span>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0"> <!-- Margen a la derecha(margin-end) automatico, margin bottom(escala bootstrap), margin bottom en pantallas grandes y sin margen-->
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0"> <!-- Margen a la derecha(margin-end) automatico, margin bottom(escala bootstrap), margin bottom en pantallas grandes y sin margen-->
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                        <a class="nav-link" aria-current="page" href="#">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Acerca de Nosotros</a>
@@ -29,7 +31,7 @@
                         <a class="nav-link" href="#">Mapa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Herramientas de conglomerados</a>
+                        <a class="nav-link" href="#">Listado de conglomerados</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contacto</a>
@@ -39,24 +41,24 @@
         </div>
     </nav>
 <header class="hero-title">
-    <div class="container-fluid h-100 d-flex align-items-center">
+    <div class="container-fluid h-100 d-flex align-items-center my-6 ">
         <div class="row w-100">
             <div class="col-12 text-center">
-                <h1 class="display-1 mb-3">Bienvenido a IFN Gestor de conglomerados</h1>
-                <p class="lead mb-4">Descubre nuestras herramientas y servicios para optimizar la gestión de tu conglomerado.</p>
+                <h1 id="herotitle" class="display-1 mb-3">Bienvenido a IFN Gestor de Brigadas</h1>
+                <p  id="parrafo-hero" class="lead mb-4">Descubre nuestras herramientas y servicios para optimizar la gestión de tu conglomerado.</p>
                 
             </div>
         </div>
     </div>
 </header>
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+<div id="carouselExampleIndicators" class="carousel slide  " data-bs-ride="carousel"style="border: 3px solid #1a3009;">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Imagen 1"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Imagen 2"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Imagen 3"></button>
   </div>
   <div class="carousel-inner">
-    <div class="carousel-item active">
+    <div class="carousel-item active ">
       <img src="img/im1.jpg" class="d-block w-100 " alt="...">
     </div>
     <div class="carousel-item">
@@ -75,7 +77,39 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-<section id="section1" class="container-fluid border border-3 rounded-3 p-4 my-4">
+<section id="section1" class="container-fluid border border-3 rounded-3 p-4 my-5">
+    <!-- Primer concepto: Conglomerado -->
+    <div class="row align-items-center mb-5">
+        <div class="col-lg-8 col-md-12">
+            <h2 id="title-conglomerado" class="display-4">¿Qué es un conglomerado en el IFN?</h2>
+            <p id="text-conglomerado" class="lead fs-2">En el marco del IFN, un conglomerado es una unidad de muestreo que consiste en un conjunto de 
+              subparcelas circulares distribuidas espacialmente dentro de un polígono (cuadro de 24 km × 24 km) 
+              seleccionado probabilísticamente. Cada conglomerado ocupa aproximadamente 0,35 ha y está conformado por 
+              cinco subparcelas circulares de radio ~15 m, dispuestas en forma de cruz, separadas entre sí por cerca de 80 m. 
+              Estas unidades permiten estimaciones representativas sobre la vegetación, biomasa, diversidad y composición forestal a nivel regional y nacional
+            </p>
+        </div>
+        <div class="col-lg-4 col-md-12 text-center">
+            <img src="img/conglomerado.jpg" alt="Conglomerado" class="img-fluid rounded-3">
+        </div>
+    </div>
+    
+    <!-- Separador visual -->
+    <hr class="my-4">
+    
+    <!-- Segundo concepto: Brigada -->
+    <div class="row align-items-center">
+        <div class="col-lg-8 col-md-12">
+            <h2 id="title-brigada" class="display-4">¿Qué es una brigada en el IFN?</h2>
+            <p id="text-brigada" class="lead fs-2">Una brigada forestal de campo es un equipo técnico responsable de realizar el levantamiento de información dentro de los conglomerados definidos. Generalmente está integrada por un jefe de brigada, un botánico, uno o varios técnicos forestales y asistentes locales, quienes colectan datos estructurales (ej. diámetros, alturas), muestras botánicas, suelo y detritos en cada subparcela, siguiendo protocolos estandarizados
+            </p>
+        </div>
+        <div class="col-lg-4 col-md-12 text-center">
+            <img src="img/brigada.jpg" alt="Brigada" class="img-fluid rounded-3">
+        </div>
+    </div>
+</section>
+<section id="section2" class="container-fluid border border-3 rounded-3 p-4 my-5">
     <div class="row">
         <div class="col-12 text-left">
             <h2 class="display-4">LLenar de info acerca de esta secciion y asi</h2>
@@ -97,50 +131,71 @@
 
 <!-- Formulario colapsable -->
 <div class="collapse" id="contactForm">
-  <div class="container-fluid my-4">
+  <div class="container-fluid my-4 align-items-center">
     <div class="row justify-content-left p-4">
       <div class="col-md-8">
         <div class="card">
           <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">Nueva Brigada</h5>
+            <h5 class="mb-0"> Agregar nueva Brigada</h5>
             <button type="button" class="btn-close" data-bs-toggle="collapse" data-bs-target="#contactForm" aria-label="Cerrar formulario"></button>
           </div>
           <div class="card-body">
-            <form>
+            <form style="align-items: center;">
   <!-- Campo: Título de la brigada -->
-  <div class="mb-3">
+  
+
+  <!-- Campos: Jefe brigadista e Integrantes (lado a lado) -->
+  <div class="row mb-3">
+    <div class="col-md-6 mb-3">
     <label for="tituloBrigada" class="form-label">Título de la brigada</label>
     <input type="text" class="form-control" id="tituloBrigada" aria-describedby="tituloHelp" required>
     <div id="tituloHelp" class="form-text">Ingresa un nombre descriptivo para identificar la brigada.</div>
   </div>
-
-  <!-- Campo: Jefe brigadista -->
-  <div class="mb-3">
-    <label for="jefeBrigadista" class="form-label">Jefe brigadista</label>
-    <select class="form-select" id="jefeBrigadista" aria-describedby="jefeHelp" required>
-      <option value="">Selecciona al jefe de brigadista</option>
-      <option value="1">Jefe 1</option>
-      <option value="2">Jefe 2</option>
-      <option value="3">Jefe 3</option>
-    </select>
-    <div id="jefebrigada" class="form-text">Selecciona al jefe de brigadista.</div>
+    <!-- Jefe brigadista -->
+    <div class="col-md-6">
+      <label for="jefeBrigadista" class="form-label">Jefe brigadista</label>
+      <select class="form-select" id="jefeBrigadista" aria-describedby="jefeHelp" required>
+        <option value="">Selecciona un jefe</option>
+        <option value="1">Jefe 1</option>
+        <option value="2">Jefe 2</option>
+        <option value="3">Jefe 3</option>
+      </select>
+      <div id="jefeHelp" class="form-text">Selecciona al jefe de la brigada.</div>
+    </div>
+    
+    <!-- Integrantes de la brigada -->
+    <div class="col-md-6">
+      <label for="integrantesBrigada" class="form-label">Integrantes de la brigada</label>
+      <select class="form-select" id="integrantesBrigada" aria-describedby="integrantesHelp" multiple required>
+        <option value="1">Investigador 1</option>
+        <option value="2">Investigador 2</option>
+        <option value="3">Investigador 3</option>
+        <option value="4">Investigador 4</option>
+        <option value="5">Investigador 5</option>
+      </select>
+      <div id="integrantesHelp" class="form-text">Elije los investigadores que conforman la brigada. Mantén presionado Ctrl para seleccionar múltiples integrantes.</div>
+    </div>
+    <div class="col-md-6">
+      <label for="integrantesBrigada" class="form-label">Ubicacion</label>
+      <select class="form-select" id="integrantesBrigada" aria-describedby="Ubicacionhelp">
+        <option value="1">Ubicacion 1</option>
+        <option value="2">Ubicacion 2</option>
+        <option value="3">Ubicacion 3</option>
+        <option value="4">Ubicacion 4</option>
+        <option value="5">Ubicacion 5</option>
+      </select>
+      <div id="Ubicacionhelp" class="form-text">Elije la ubicacion de la brigada.</div>
+    </div>
+    <div class="col-md-6 mb-3">
+    <label for="conglomerado" class="form-label">Id conglomerado</label>
+    <input type="text" class="form-control" id="conglomerado" aria-describedby="conglomeradohelp" required >
+    <div id="conglomeradohelp" class="form-text">Escribe el id del conglomerado</div>
   </div>
-
-  <!-- Campo: Email del jefe -->
-  <div class="mb-3">
-    <label for="emailJefe" class="form-label">Email del jefe</label>
-    <input type="email" class="form-control" id="emailJefe" aria-describedby="emailHelp" required>
-    <div id="emailHelp" class="form-text">Este email se usará para comunicaciones oficiales.</div>
+  <div class="col-md-6 mb-3">
+    <label for="descripcionBrigada" class="form-label">Descripción de la brigada</label>
+    <input type="text" class="form-control" id="descripcionBrigada" aria-describedby="descripcionHelp" required >
+    <div id="descripcionHelp" class="form-text">Escribe una breve descripción de la brigada.</div>
   </div>
-
-  <!-- Campo: Integrantes -->
-  <div class="mb-3">
-    <label for="integrantes" class="form-label">Integrantes de la brigada</label>
-    <textarea class="form-control" id="integrantes" rows="4" aria-describedby="integrantesHelp" required></textarea>
-    <div id="integrantesHelp" class="form-text">Lista los nombres de todos los integrantes, uno por línea.</div>
-  </div>
-
-  <!-- Checkbox: Términos y condiciones -->
   <div class="mb-3 form-check">
     <input type="checkbox" class="form-check-input" id="terminos" required>
     <label class="form-check-label" for="terminos">
@@ -152,6 +207,16 @@
   <div class="d-flex gap-2">
     <button type="submit" class="btn btn-primary">Guardar Brigada</button>
   </div>
+  </div>
+  
+  
+  </div>
+  
+
+  
+
+  <!-- Checkbox: Términos y condiciones -->
+  
 </form>
           </div>
         </div>
