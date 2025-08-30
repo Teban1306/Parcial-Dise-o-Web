@@ -17,8 +17,12 @@ clamp= permite valores responsivos clamp(2rem, 5vw, 4rem) = mínimo 2rem, prefer
     font-weight: 200;
     line-height: 1.4;
 }
+#herotitle{
+ color:#1a3009;
+}
 #parrafo-hero{
     font-size: clamp(1rem, 3vw, 2rem);
+    color: #1a3009;
 }
 .carousel {
    width: 100%;/* 100% del viewport width */
@@ -41,6 +45,13 @@ clamp= permite valores responsivos clamp(2rem, 5vw, 4rem) = mínimo 2rem, prefer
   .nav-item{
     font-size: clamp(1.5rem, 2.5vw, 1.5rem);
     padding-left: 2rem;
+     background-color: rgba(162, 187, 138, 0.5);
+  padding: 0.1rem 0.2rem 0.1rem 0.2rem;   
+  border-radius: 1rem;
+  margin-right: 2rem;
+  }
+  .nav-link{
+    color: #1a3009;
   }
 
 /* Estilos para el navbar-brand */
@@ -49,15 +60,19 @@ clamp= permite valores responsivos clamp(2rem, 5vw, 4rem) = mínimo 2rem, prefer
     font-weight: 500;
 }
 
-.navbar-brand img {
-    height: 1.5rem;
-    width: auto;
-}
+
  #title1{
   background-color: rgba(162, 187, 138, 0.8);
-  padding: 0.5rem;
+  padding: 1rem;
   border-radius: 1rem;
+  margin-left: 1rem;margin-right: 1rem;
+  color: #1a3009;
  }
+ #text1{
+  padding: 1rem;
+  margin-left: 1rem;margin-right: 1rem; }
+
+
 
  
 

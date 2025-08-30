@@ -13,16 +13,16 @@
     <nav id="navbar" class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center" >
-                <img src="img/ideam.png" alt="Logo IFN" style="height: 4rem; width: auto; margin-right: 2rem;">
+                <img src="img/ideam.png" alt="Logo IFN" style="height: 4rem; width: auto; margin-right: 2rem; margin-left: 2rem;">
                 <span>IFN Gestor de Brigadas</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0"> <!-- Margen a la derecha(margin-end) automatico, margin bottom(escala bootstrap), margin bottom en pantallas grandes y sin margen-->
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0"> <!-- Margen a la derecha(margin-end) automatico, margin bottom(escala bootstrap), margin bottom en pantallas grandes y sin margen-->
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                        <a class="nav-link" aria-current="page" href="#">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Acerca de Nosotros</a>
@@ -31,7 +31,7 @@
                         <a class="nav-link" href="#">Mapa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Herramientas de conglomerados</a>
+                        <a class="nav-link" href="#">Listado de conglomerados</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contacto</a>
@@ -41,24 +41,24 @@
         </div>
     </nav>
 <header class="hero-title">
-    <div class="container-fluid h-100 d-flex align-items-center">
+    <div class="container-fluid h-100 d-flex align-items-center my-6 ">
         <div class="row w-100">
             <div class="col-12 text-center">
-                <h1 class="display-1 mb-3">Bienvenido a IFN Gestor de Brigadas</h1>
+                <h1 id="herotitle" class="display-1 mb-3">Bienvenido a IFN Gestor de Brigadas</h1>
                 <p  id="parrafo-hero" class="lead mb-4">Descubre nuestras herramientas y servicios para optimizar la gestión de tu conglomerado.</p>
                 
             </div>
         </div>
     </div>
 </header>
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+<div id="carouselExampleIndicators" class="carousel slide  " data-bs-ride="carousel"style="border: 3px solid #1a3009;">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Imagen 1"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Imagen 2"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Imagen 3"></button>
   </div>
   <div class="carousel-inner">
-    <div class="carousel-item active">
+    <div class="carousel-item active ">
       <img src="img/im1.jpg" class="d-block w-100 " alt="...">
     </div>
     <div class="carousel-item">
@@ -77,26 +77,39 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-<section id="section1" class="container-fluid border border-3 rounded-3 p-4 my-4">
-    <div class="row align-items-center">
+<section id="section1" class="container-fluid border border-3 rounded-3 p-4 my-5">
+    <!-- Primer concepto: Conglomerado -->
+    <div class="row align-items-center mb-5">
         <div class="col-lg-8 col-md-12">
-            <h2 id="title1" class="display-4">¿Qué es un conglomerado en el IFN?</h2>
-            <p class="lead">En el marco del IFN, un conglomerado es una unidad de muestreo que consiste en un conjunto de 
+            <h2 id="title-conglomerado" class="display-4">¿Qué es un conglomerado en el IFN?</h2>
+            <p id="text-conglomerado" class="lead fs-2">En el marco del IFN, un conglomerado es una unidad de muestreo que consiste en un conjunto de 
               subparcelas circulares distribuidas espacialmente dentro de un polígono (cuadro de 24 km × 24 km) 
               seleccionado probabilísticamente. Cada conglomerado ocupa aproximadamente 0,35 ha y está conformado por 
               cinco subparcelas circulares de radio ~15 m, dispuestas en forma de cruz, separadas entre sí por cerca de 80 m. 
               Estas unidades permiten estimaciones representativas sobre la vegetación, biomasa, diversidad y composición forestal a nivel regional y nacional
             </p>
         </div>
-        <div id="imgcon" class="col-lg-4 text-center col-md-12 text-center">
+        <div class="col-lg-4 col-md-12 text-center">
             <img src="img/conglomerado.jpg" alt="Conglomerado" class="img-fluid rounded-3">
         </div>
     </div>
-
+    
+    <!-- Separador visual -->
+    <hr class="my-4">
+    
+    <!-- Segundo concepto: Brigada -->
+    <div class="row align-items-center">
+        <div class="col-lg-8 col-md-12">
+            <h2 id="title-brigada" class="display-4">¿Qué es una brigada en el IFN?</h2>
+            <p id="text-brigada" class="lead fs-2">Una brigada forestal de campo es un equipo técnico responsable de realizar el levantamiento de información dentro de los conglomerados definidos. Generalmente está integrada por un jefe de brigada, un botánico, uno o varios técnicos forestales y asistentes locales, quienes colectan datos estructurales (ej. diámetros, alturas), muestras botánicas, suelo y detritos en cada subparcela, siguiendo protocolos estandarizados
+            </p>
+        </div>
+        <div class="col-lg-4 col-md-12 text-center">
+            <img src="img/brigada.jpg" alt="Brigada" class="img-fluid rounded-3">
         </div>
     </div>
 </section>
-<section id="section2" class="container-fluid border border-3 rounded-3 p-4 my-4">
+<section id="section2" class="container-fluid border border-3 rounded-3 p-4 my-5">
     <div class="row">
         <div class="col-12 text-left">
             <h2 class="display-4">LLenar de info acerca de esta secciion y asi</h2>
