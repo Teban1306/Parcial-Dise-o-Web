@@ -225,6 +225,174 @@ clamp= permite valores responsivos clamp(2rem, 5vw, 4rem) = mínimo 2rem, prefer
     box-shadow: 0 6px 20px rgba(26, 48, 9, 0.3);
 }
 
+/* Estilos para las tablas de brigadas y conglomerados */
+.brigadas-table, .conglomerados-table {
+    font-size: 0.85rem;
+    margin-bottom: 0;
+}
+
+.brigadas-table thead th, .conglomerados-table thead th {
+    background-color: #1a3009;
+    color: white;
+    border: none;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.75rem 0.5rem;
+}
+
+.brigadas-table tbody tr, .conglomerados-table tbody tr {
+    border-bottom: 1px solid #e9ecef;
+    transition: all 0.2s ease;
+}
+
+.brigadas-table tbody tr:hover, .conglomerados-table tbody tr:hover {
+    background-color: rgba(162, 187, 138, 0.1);
+    transform: translateY(-1px);
+}
+
+.brigadas-table tbody td, .conglomerados-table tbody td {
+    padding: 0.75rem 0.5rem;
+    vertical-align: middle;
+    border: none;
+}
+
+.brigadas-table .badge, .conglomerados-table .badge {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+}
+
+/* Colores personalizados para badges */
+.badge.bg-primary {
+    background-color: #1a3009 !important;
+}
+
+.badge.bg-info {
+    background-color: #17a2b8 !important;
+}
+
+.badge.bg-success {
+    background-color: #28a745 !important;
+}
+
+.badge.bg-warning {
+    background-color: #ffc107 !important;
+    color: #212529 !important;
+}
+
+.badge.bg-danger {
+    background-color: #dc3545 !important;
+}
+
+/* ===== FOOTER GUBERNAMENTAL COLOMBIANO ===== */
+.footer-gubernamental {
+    background-color:#333!important;
+    border-top: 3px solid #a2bb8a;
+    margin-top: auto;
+}
+
+.footer-section {
+    padding: 0.5rem 0;
+}
+
+.footer-title {
+    color: #a2bb8a;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #a2bb8a;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.footer-logo {
+    height: 4rem;
+    width: auto;
+    filter: brightness(1.2);
+}
+
+.footer-text {
+    color: #e8f5e8;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+}
+
+.footer-links {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-link {
+    color: #d4e6d4;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.footer-link:before {
+    content: "-";
+    position: absolute;
+    left: 0;
+    color: #a2bb8a;
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #a2bb8a;
+    text-decoration: none;
+    transform: translateX(5px);
+}
+
+.footer-link:hover:before {
+    transform: translateX(3px);
+}
+
+.footer-contact {
+    font-size: 0.85rem;
+    color: #e8f5e8;
+}
+
+.footer-contact strong {
+    color: #a2bb8a;
+    font-weight: 600;
+}
+
+.footer-legal {
+    font-size: 0.8rem;
+    color: #d4e6d4;
+}
+
+.footer-legal-links {
+    margin-top: 0.5rem;
+}
+
+.footer-legal-links .footer-link {
+    font-size: 0.75rem;
+    padding-left: 0;
+}
+
+.footer-legal-links .footer-link:before {
+    display: none;
+}
+
+
+
+
+
+
+
 
 
  

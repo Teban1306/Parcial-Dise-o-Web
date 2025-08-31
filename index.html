@@ -32,7 +32,7 @@
                         <a class="nav-link" aria-current="page" href="#">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Acerca de Nosotros</a>
+                        <a class="nav-link" href="#">Acerca del IFN</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Mapa</a>
@@ -138,7 +138,7 @@
 <div class="collapse" id="contactForm">
   <div class="container-fluid my-4 ">
     <div class="row justify-content-left p-4">
-      <div class="col-md-8">
+      <div class="col-md-10 col-lg-8 col-xl-6"> <!--form foram-->
         <div class="card">
           <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="mb-0"> Agregar nueva Brigada</h5>
@@ -254,15 +254,55 @@
 
 
 <div class="row g-4">
-                <div class="col-md-4">
+                <div class="col-lg-4">
                     <div class="card h-100">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Listado de brigadas</h5>
-                            <p class="card-text">Administra tus brigadas de manera eficiente</p>
+                        <div class="card-body">
+                            <h5 class="card-title text-center mb-3">Brigadas Activas</h5>
+                            <div class="table-responsive">
+                                <table class="table table-sm brigadas-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nombre</th>
+                                            <th>Estado</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span class="badge bg-primary">BR001</span></td>
+                                            <td>Brigada Norte</td>
+                                            <td><span class="badge bg-success">Activa</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="badge bg-primary">BR002</span></td>
+                                            <td>Brigada Sur</td>
+                                            <td><span class="badge bg-success">Activa</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="badge bg-primary">BR003</span></td>
+                                            <td>Brigada Centro</td>
+                                            <td><span class="badge bg-warning">Pausa</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="badge bg-primary">BR004</span></td>
+                                            <td>Brigada Oriente</td>
+                                            <td><span class="badge bg-success">Activa</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="badge bg-primary">BR005</span></td>
+                                            <td>Brigada Occidente</td>
+                                            <td><span class="badge bg-success">Activa</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="text-center mt-3">
+                                <small class="text-muted">Total: 5 brigadas | 4 activas</small>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-lg-4">
                     <div class="card h-100">
                         <div class="card-body text-center">
                             <h5 class="card-title">Mapa de conglomerados</h5>
@@ -271,16 +311,127 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-lg-4">
                     <div class="card h-100">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Conglomerados activos</h5>
-                            <p class="card-text">Atención 24/7 para resolver tus dudas</p>
+                        <div class="card-body">
+                            <h5 class="card-title text-center mb-3">Conglomerados Activos</h5>
+                            <div class="table-responsive">
+                                <table class="table table-sm conglomerados-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Ubicación</th>
+                                            <th>Estado</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span class="badge bg-info">CG001</span></td>
+                                            <td>Amazonas</td>
+                                            <td><span class="badge bg-success">Activo</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="badge bg-info">CG002</span></td>
+                                            <td>Antioquia</td>
+                                            <td><span class="badge bg-success">Activo</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="badge bg-info">CG003</span></td>
+                                            <td>Cundinamarca</td>
+                                            <td><span class="badge bg-danger">Inactivo</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="badge bg-info">CG004</span></td>
+                                            <td>Valle del Cauca</td>
+                                            <td><span class="badge bg-success">Activo</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="badge bg-info">CG005</span></td>
+                                            <td>Santander</td>
+                                            <td><span class="badge bg-warning">Mantenimiento</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="text-center mt-3">
+                                <small class="text-muted">Total: 5 conglomerados | 3 activos</small>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </main>
+
+    <!-- Footer Gubernamental Colombiano -->
+    <footer class="footer-gubernamental bg-dark text-white mt-5">
+        <div class="container py-4">
+            <div class="row">
+                <!-- Información Institucional -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5 class="footer-title mb-3">
+                            <img src="img/ideam.png" alt="IDEAM" class="footer-logo me-2">
+                            IDEAM
+                        </h5>
+                        <p class="footer-text">Instituto de Hidrología, Meteorología y Estudios Ambientales</p>
+                        <p class="footer-text">Entidad del orden nacional adscrita al Ministerio de Ambiente y Desarrollo Sostenible</p>
+                    </div>
+                </div>
+
+                <!-- Inventario Forestal Nacional -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5 class="footer-title mb-3">Inventario Forestal Nacional (IFN)</h5>
+                        <p class="footer-text">Sistema de monitoreo y evaluación de los recursos forestales de Colombia</p>
+                        <ul class="footer-links list-unstyled">
+                            <li><a href="#" class="footer-link">Conglomerados Forestales</a></li>
+                            <li><a href="#" class="footer-link">Brigadas de Campo</a></li>
+                            <li><a href="#" class="footer-link">Reportes y Estadísticas</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Enlaces Gubernamentales -->
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <div class="footer-section">
+                        <h5 class="footer-title mb-3">Enlaces de Interés</h5>
+                        <ul class="footer-links list-unstyled">
+                            <li><a href="https://www.gov.co" target="_blank" class="footer-link">Portal Único del Estado Colombiano</a></li>
+                            <li><a href="https://www.minambiente.gov.co" target="_blank" class="footer-link">Ministerio de Ambiente</a></li>
+                            <li><a href="https://www.ideam.gov.co" target="_blank" class="footer-link">IDEAM Oficial</a></li>
+                            <li><a href="https://www.urnadecristal.gov.co" target="_blank" class="footer-link">Urna de Cristal</a></li>
+                            <li><a href="https://www.datos.gov.co" target="_blank" class="footer-link">Datos Abiertos</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Información de Contacto y Legal -->
+            <div class="row border-top border-secondary pt-3 mt-3">
+                <div class="col-md-8">
+                    <div class="footer-contact">
+                        <p class="mb-1"><strong>Dirección:</strong> Carrera 10 No. 20-30 Bogotá D.C., Colombia</p>
+                        <p class="mb-1"><strong>Teléfono:</strong> +57 (1) 352 7160</p>
+                        <p class="mb-1"><strong>Línea Nacional:</strong> 01 8000 110 012</p>
+                        <p class="mb-0"><strong>Email:</strong> contacto@ideam.gov.co</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <div class="footer-legal">
+                        <p class="mb-1">© 2024 IDEAM - Todos los derechos reservados</p>
+                        <div class="footer-legal-links">
+                            <a href="#" class="footer-link me-3">Términos de Uso</a>
+                            <a href="#" class="footer-link me-3">Política de Privacidad</a>
+                            <a href="#" class="footer-link">Mapa del Sitio</a>
+                            
+                        </div>
+                        <img class="footer-logo" src="img/ambiente.png" alt="IDEAM">
+                    </div>
+                </div>
+              </div>
+        </div>
+    </footer>
 
 </body>
 </html>
