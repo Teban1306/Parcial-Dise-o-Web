@@ -2,7 +2,7 @@
 clamp= permite valores responsivos clamp(2rem, 5vw, 4rem) = mínimo 2rem, preferido 5% del viewport, máximo 4rem
 */
 .hero-title {
-    background-color: rgba(162, 187, 138, 0.8);
+    background-color: rgba(255, 255, 255, 0.8);
     min-height: 20vh;
     padding: 1.5rem;  /* root em, medida relativa que se basa en el tamaño fuente del elemento raiz*/
 }
@@ -21,7 +21,7 @@ clamp= permite valores responsivos clamp(2rem, 5vw, 4rem) = mínimo 2rem, prefer
  color:#1a3009;
 }
 #parrafo-hero{
-    font-size: clamp(1rem, 3vw, 2rem);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
     color: #1a3009;
 }
 .carousel {
@@ -32,32 +32,86 @@ clamp= permite valores responsivos clamp(2rem, 5vw, 4rem) = mínimo 2rem, prefer
   .carousel-inner {
     height: 60vh;
     min-height: 300px; /* Altura mínima para pantallas muy pequeñas */
-    max-height: 500px; /* Altura máxima para pantallas grandes */
+    max-height: 900px; /* Altura máxima para pantallas grandes */
     overflow: hidden;
   }
   .carousel-item img {
     width: 100%;
-    height: 500px;
+    height: 900px;
     object-fit: cover;
     object-position: center;
   }
 
+  /* Estilos del navbar */
+  #navbar {
+    background-color: #1a3009 !important;
+    padding: 1.2rem;
+  }
+  
+  /* Estilos para el texto del navbar */
+  .navbar-brand {
+    color: white !important;
+  }
+  
+  .navbar-brand span {
+    color: white !important;
+  }
+  
+ .nav-link {
+    color: white !important;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    position: relative;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #e0ff71;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover {
+    color: #e0ff71 !important;
+    transform: translateY(-1px);
+}
+
+.nav-link:hover::before {
+    width: 80%;
+}
+  
+  .navbar-toggler {
+    border-color: white;
+
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+
   .nav-item{
-    font-size: clamp(1.5rem, 2.5vw, 1.5rem);
-    padding-left: 2rem;
-     background-color: rgba(162, 187, 138, 0.5);
-  padding: 0.1rem 0.2rem 0.1rem 0.2rem;   
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  background-color: rgba(162, 187, 138, 0.5);
+  padding: 0.3rem 0.5rem;
   border-radius: 1rem;
-  margin-right: 2rem;
+  margin-right: clamp(0.5rem, 2vw, 2rem);
+  margin-bottom: 0.5rem;
+  font-weight: 450;
   }
   .nav-link{
-    color: #1a3009;
+    color: #ffffff;
   }
 
 /* Estilos para el navbar-brand */
 .navbar-brand span {
     font-size: clamp(2rem, 2.5vw, 1.5rem);
     font-weight: 500;
+    margin-bottom: 1rem;
 }
 
 
@@ -72,9 +126,106 @@ clamp= permite valores responsivos clamp(2rem, 5vw, 4rem) = mínimo 2rem, prefer
   padding: 1rem;
   margin-left: 1rem;margin-right: 1rem; }
 
-#descripcionBrigada{
-  height: 60px;
+/* Estilos del formulario */
+.card {
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
 }
+
+.card-header {
+    background-color: #1a3009;
+    color: white;
+    border-radius: 1rem 1rem 0 0 !important;
+    border: none;
+}
+
+.form-control, .form-select {
+    border-radius: 0.5rem;
+    border: 1px solid #e0e0e0;
+    padding: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #1a3009;
+    box-shadow: 0 0 0 0.2rem rgba(26, 48, 9, 0.15);
+}
+
+.form-label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.form-text {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+#descripcionBrigada {
+    height: 60px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #1a3009, #2d5016);
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #2d5016, #1a3009);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(26, 48, 9, 0.3);
+}
+
+.btn-outline-secondary {
+    border-color: #6c757d;
+    color: #6c757d;
+    border-radius: 0.5rem;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+/* Mejoras adicionales para el formulario */
+.card-body {
+    padding: 2rem;
+}
+
+
+/* Espaciado mejorado para campos múltiples */
+.row.mb-3:last-of-type {
+    margin-bottom: 1.5rem !important;
+}
+#boton-crear {
+    margin-left: 1rem;
+}
+
+#boton-crear .btn {
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 0.75rem;
+    min-width: 200px;
+    transition: all 0.3s ease;
+}
+
+#boton-crear .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(26, 48, 9, 0.3);
+}
+
+
 
  
 
