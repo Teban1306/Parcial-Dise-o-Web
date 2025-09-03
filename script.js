@@ -1,39 +1,40 @@
 
-// Función para inicializar el mapa
+// Función para inicializar el mapa interactivo con Leaflet
 function inicializarMapa() {
-  // Verificar que el elemento del mapa existe
+  // Verificar que el elemento con ID 'mapa-satelital' existe en el DOM
   const mapaElement = document.getElementById('mapa-satelital');
   if (!mapaElement) {
+    // Mostrar error en consola si el elemento no se encuentra
     console.error('Elemento mapa-satelital no encontrado');
     return;
   }
 
-  // Inicializar mapa centrado en Colombia
+  // Crear mapa centrado en Colombia (coordenadas: 4.5709, -74.2973) con zoom nivel 6
   var map = L.map('mapa-satelital').setView([4.5709, -74.2973], 6);
 
-  // OPCIÓN A: Google Satellite (Mejor calidad)
+  // Definir capa de Google Satellite (imágenes satelitales de alta calidad)
   var googleSat = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-      maxZoom: 20,
-      subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-      attribution: '© Google'
+      maxZoom: 20, // Zoom máximo permitido
+      subdomains: ['mt0', 'mt1', 'mt2', 'mt3'], // Subdominios para balanceo de carga
+      attribution: '© Google' // Atribución 
   });
 
-  // OPCIÓN B: Esri World Imagery (Alternativa gratuita)
+  // Definir capa alternativa de Esri World Imagery (gratuita)
   var esriSat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-      attribution: '© Esri, DigitalGlobe, GeoEye, Earthstar Geographics'
+      attribution: '© Esri, DigitalGlobe, GeoEye, Earthstar Geographics' // Atribución requerida
   });
 
-  // Agregar la capa satelital al mapa
+  // Agregar la capa de Google Satellite al mapa por defecto
   googleSat.addTo(map);
 
-  // Control de capas (opcional)
+  // Crear control de capas para alternar entre Google y Esri
   var baseMaps = {
       "Vista Satelital": googleSat,
       "Esri Satelital": esriSat
   };
   L.control.layers(baseMaps).addTo(map);
 
-  // Agregar marcadores de conglomerados
+  // Definir arreglo de conglomerados con coordenadas, nombres e IDs (RF-008: consulta de conglomerados)
   var conglomerados = [
       {coords: [4.7110, -74.0721], nombre: "Conglomerado Bogotá", id: "CON-001"},
       {coords: [6.2442, -75.5812], nombre: "Conglomerado Medellín", id: "CON-002"},
@@ -41,8 +42,11 @@ function inicializarMapa() {
       {coords: [3.4516, -76.5320], nombre: "Conglomerado Cali", id: "CON-004"}
   ];
 
+  // Agrega marcadores al mapa
   conglomerados.forEach(function(punto) {
+      // Crear marcador en las coordenadas del conglomerado
       var marker = L.marker(punto.coords).addTo(map);
+      // Asignar un popup (Ventana emergente) con información del conglomerado y un botón
       marker.bindPopup(`
           <div class="text-center">
               <h6><strong>${punto.nombre}</strong></h6>
@@ -54,22 +58,25 @@ function inicializarMapa() {
   });
 }
 
-// Ejecutar cuando el DOM esté completamente cargado
+// Ejecutar cuando el DOM (Data object model) esté completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
-  // Inicializar formulario
-  const contactForm = document.getElementById('contactForm');
+  // Seleccionar elementos del formulario colapsable y texto del botón
+  const brigadaForm = document.getElementById('brigadaForm');
   const toggleText = document.getElementById('toggleText');
   
-  if (contactForm && toggleText) {
-    contactForm.addEventListener('show.bs.collapse', function() {
+  // Verificar que los elementos existen antes de añadir eventos
+  if (brigadaForm && toggleText) {
+    // Cambiar texto del botón a "Cancelar" cuando el formulario se muestra (RF-003)
+    brigadaForm.addEventListener('show.bs.collapse', function() {
       toggleText.textContent = 'Cancelar';
     });
     
-    contactForm.addEventListener('hide.bs.collapse', function() {
+    // Cambiar texto del botón a "Crear nueva brigada" cuando el formulario se oculta
+    brigadaForm.addEventListener('hide.bs.collapse', function() {
       toggleText.textContent = 'Crear nueva brigada';
     });
   }
   
-  // Inicializar mapa con un pequeño retraso para asegurar que el DOM esté listo
+  // Inicializar el mapa con un retraso de 100ms para asegurar que el DOM esté listo
   setTimeout(inicializarMapa, 100);
 });

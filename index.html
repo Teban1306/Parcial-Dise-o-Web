@@ -1,373 +1,381 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
+    <!-- Configura la página para que se adapte al ancho del dispositivo -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IFN - Inicio</title>
+    <!-- Importa estilos de Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Importa JavaScript de Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    
-    <!-- Leaflet CSS -->
+    <!-- Importa estilos de Leaflet para mostrar mapas interactivos -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-    
     <link rel="stylesheet" href="styles.css">
-    
-    <!-- Leaflet JavaScript -->
+    <!-- Importa estilos de Animate.css para animaciones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- Importa JavaScript de Leaflet para funcionalidades de mapas -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="script.js"></script>
 </head>
 <body>
+    <!-- Barra de navegación expansible con Bootstrap, fija en la parte superior -->
     <nav id="navbar" class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand d-flex align-items-center" >
+            <!-- Marca de la navbar con logo y nombre de la aplicación -->
+            <a class="navbar-brand d-flex align-items-center">
+                <!-- Logo del IDEAM (márgenes para alineación) -->
                 <img src="img/ideam.png" alt="Logo IFN" style="height: 4rem; width: auto; margin-right: 2rem; margin-left: 2rem; margin-bottom: 1rem;">
                 <span>IFN Gestor de Brigadas</span>
             </a>
+            <!-- Botón hamburguesa para colapsar menú -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <!-- Contenedor de enlaces del menú, colapsable en móviles -->
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0"> <!-- Margen a la derecha(margin-end) automatico, margin bottom(escala bootstrap), margin bottom en pantallas grandes y sin margen-->
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="#">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Acerca del IFN</a>
+                        <a class="nav-link" href="#section1">Acerca del IFN</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Mapa</a>
+                        <a class="nav-link" href="#cards">Mapa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Listado de conglomerados</a>
+                        <a class="nav-link" href="#cards">Listado de conglomerados</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contacto</a>
+                        <a class="nav-link" href="#footer">Contacto</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-<header class="hero-title">
-    <div class="container-fluid h-100 d-flex align-items-center my-6 ">
-        <div class="row w-100">
-            <div class="col-12 text-center">
-                <h1 id="herotitle" class="display-1 mb-3">Bienvenido a IFN Gestor de Brigadas</h1>
-                <p  id="parrafo-hero" class="lead mb-4">Descubre nuestras herramientas y servicios para optimizar la gestión de tu conglomerado.</p>
-                
+    <!-- Encabezado principal estilizado -->
+    <header class="hero-title">
+        <!-- Contenedor fluido que centra contenido verticalmente -->
+        <div class="container-fluid h-100 d-flex align-items-center my-6">
+            <div class="row w-100">
+                <div class="col-12 text-center">
+                    <h1 id="herotitle" class="display-1 mb-3  animate__animated animate__zoomIn">Bienvenido a IFN Gestor de Brigadas</h1>
+                    <p id="parrafo-hero" class="lead mb-4 animate__animated animate__fadeInUp">Descubre nuestras herramientas y servicios para optimizar 
+                        la gestión de tu conglomerado.</p>
+                </div>
             </div>
         </div>
-    </div>
-</header>
-<div id="carouselExampleIndicators" class="carousel slide  " data-bs-ride="carousel"style="border: 3px solid #1a3009;">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Imagen 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Imagen 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Imagen 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active ">
-      <img src="img/im1.jpg" class="d-block w-100 " alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="img/im2.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="img/im3.jpeg" class="d-block w-100 " alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-<section id="section1" class="container-fluid border border-3 rounded-3 p-4 my-5">
-    <!-- Primer concepto: Conglomerado -->
-    <div class="row align-items-center mb-5">
-        <div class="col-lg-8 col-md-12">
-            <h2 id="title-conglomerado" class="display-4 text-center">¿Qué es un conglomerado en el IFN?</h2>
-            <p id="text-conglomerado" class="lead fs-2">En el IFN, un conglomerado es la unidad de muestreo conformada por 5 subparcelas circulares de unos 15 m de radio, dispuestas en forma de cruz dentro de un polígono de 24 km × 24 km. Con un área total de ~0,35 ha (hectareas), permite obtener estimaciones representativas sobre la vegetación, biomasa, diversidad y composición forestal del país.
-            </p>
+    </header>
+    <!-- Carrusel Bootstrap que rota automáticamente con borde personalizado -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="border: 3px solid #1a3009;">
+        <!-- Indicadores para navegar entre imágenes -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Imagen 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Imagen 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Imagen 3"></button>
         </div>
-        <div class="col-lg-4 col-md-12 text-center">
-            <img src="img/conglomerado.jpg" alt="Conglomerado" class="img-fluid rounded-3">
+        <!-- Contenedor de imágenes del carrusel -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img/im1.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="img/im2.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="img/im3.jpeg" class="d-block w-100" alt="...">
+            </div>
         </div>
+        <!-- Botón para navegar a la imagen anterior -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <!-- Botón para navegar a la imagen siguiente -->
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    
-    <!-- Separador visual -->
-    <hr class="my-4">
-    
-    <!-- Segundo concepto: Brigada -->
-    <div class="row align-items-center">
-      <div class="col-lg-4 col-md-12 text-center">
-            <img src="img/brigada.jpg" alt="Brigada" class="img-fluid rounded-3">
+    <section id="section1" class="container-fluid border border-3 rounded-3 p-4 my-5">
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-8 col-md-12">
+                <h2 id="title-conglomerado" class="display-4 text-center animate__animated animate__pulse animate__infinite">¿Qué es un conglomerado en el IFN?</h2>
+                <p id="text-conglomerado" class="lead fs-2">En el IFN, un conglomerado es la unidad de muestreo conformada por 5 subparcelas circulares de unos 15 m de radio, dispuestas en forma de cruz dentro de un polígono de 24 km × 24 km. Con un área total de ~0,35 ha (hectáreas), permite obtener estimaciones representativas sobre la vegetación, biomasa, diversidad y composición forestal del país.</p>
+            </div>
+            <div class="col-lg-4 col-md-12 text-center">
+                <img id="img-conglomerado" src="img/conglomerado.jpg" alt="Conglomerado" class="img-fluid rounded-3">
+            </div>
         </div>
-        <div class="col-lg-8 col-md-12 text-end">
-            <h2 id="title-brigada" class="display-4 text-center">¿Qué es una brigada en el IFN?</h2>
-            <p id="text-brigada" class="lead fs-2">Una brigada forestal de campo es un equipo técnico responsable de realizar el levantamiento de información dentro de los conglomerados definidos. Generalmente está integrada por un jefe de brigada, un botánico, uno o varios técnicos forestales y asistentes locales, quienes colectan datos estructurales (ej. diámetros, alturas), muestras botánicas, suelo y detritos en cada subparcela, siguiendo protocolos estandarizados
-            </p>
-        </div>
+        <!-- Separador visual -->
+        <hr class="my-4">
         
-    </div>
-</section>
-<section id="section2" class="container-fluid border border-3 rounded-3 p-4 my-5">
-    <div class="row">
-        <div class="col-12 text-left">
-            <h2 class="display-4">¿Cómo funciona el IFN Gestor de Brigadas?</h2>
-            <p class="lead">Solución integral para la gestión de brigadas forestales</p>
-            <ul class="fs-4">
-                <li>Primero debes de iniciar sesion con tu usuario de IFN-Investigador principal.</li>
-                <li>Una vez iniciada la sesion, podras acceder a las diferentes funcionalidades del IFN Gestor de Brigadas.</li>
-                <li>En la sección de " Listado de Conglomerados", podrás ver la lista de conglomerados y sus respectivas brigadas.</li>
-                <li>Tambien en el boton de "Crear Nueva brigada podras acceder al formulario para rellenar y agregar una nueva brigada con todos sus respectivos datos"</li>
-            </ul>
+
+        <div class="row align-items-center">
+            <div id="img-brigada" class="col-lg-4 col-md-12 text-center">
+                <img src="img/brigada.jpg" alt="Brigada" class="img-fluid rounded-3">
+            </div>
+            <div class="col-lg-8 col-md-12 text-end">
+                <h2 id="title-brigada" class="display-4 text-center animate__animated animate__pulse animate__infinite">¿Qué es una brigada en el IFN?</h2>
+                <p id="text-brigada" class="lead fs-2">Una brigada forestal de campo es un equipo técnico 
+                    responsable de realizar el levantamiento de información dentro de los conglomerados definidos. 
+                    Generalmente está integrada por un jefe de brigada, un botánico, uno o varios técnicos forestales y 
+                    asistentes locales, quienes colectan datos estructurales (ej. diámetros, alturas), muestras botánicas, suelo y detritos 
+                    en cada subparcela, siguiendo protocolos estandarizados.</p>
+            </div>
         </div>
-    </div>
-</section>
-<!-- Botón para mostrar/ocultar formulario -->
-<div  id="boton-crear" class="text-left my-4">
-  <button type="button" class="btn btn-primary btn-lg px-4 py-3" data-bs-toggle="collapse" data-bs-target="#contactForm" aria-expanded="false" aria-controls="contactForm">
-    <span id="toggleText">Crear nueva brigada</span>
-  </button>
-</div>
-
-<!-- Formulario colapsable -->
-<div class="collapse" id="contactForm">
-  <div class="container-fluid my-4 ">
-    <div class="row justify-content-left p-4">
-      <div class="col-md-10 col-lg-8 col-xl-6"> <!--form foram-->
-        <div class="card">
-          <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0"> Agregar nueva Brigada</h5>
-            <button type="button" class="btn-close" data-bs-toggle="collapse" data-bs-target="#contactForm" aria-label="Cerrar formulario"></button>
-          </div>
-          <div class="card-body">
-            <form>
-  <!-- Campo: Título de la brigada -->
-  <div class="row mb-3">
-    <div class="col-12 mb-3">
-      <label for="tituloBrigada" class="form-label">Título de la brigada</label>
-      <input type="text" class="form-control" id="tituloBrigada" aria-describedby="tituloHelp" required>
-      <div id="tituloHelp" class="form-text">Ingresa un nombre descriptivo para identificar la brigada.</div>
-    </div>
-  </div>
-
-  <!-- Campos: Jefe brigadista e Integrantes (lado a lado) -->
-  <div class="row mb-3">
-    <!-- Jefe brigadista -->
-    <div class="col-md-6">
-      <label for="jefeBrigadista" class="form-label">Jefe brigadista</label>
-      <select class="form-select" id="jefeBrigadista" aria-describedby="jefeHelp" required>
-        <option value="">Selecciona un jefe</option>
-        <option value="1">Jefe 1</option>
-        <option value="2">Jefe 2</option>
-        <option value="3">Jefe 3</option>
-      </select>
-      <div id="jefeHelp" class="form-text">Selecciona al jefe de la brigada.</div>
-    </div>
-    
-    <!-- Integrantes de la brigada -->
-    <div class="col-md-6">
-      <label for="integrantesBrigada" class="form-label">Integrantes de la brigada</label>
-      <select class="form-select" id="integrantesBrigada" aria-describedby="integrantesHelp" multiple required>
-        <option value="1">Investigador 1</option>
-        <option value="2">Investigador 2</option>
-        <option value="3">Investigador 3</option>
-        <option value="4">Investigador 4</option>
-        <option value="5">Investigador 5</option>
-      </select>
-      <div id="integrantesHelp" class="form-text">Elije los investigadores que conforman la brigada. Mantén presionado Ctrl para seleccionar múltiples integrantes.</div>
-    </div>
-  </div>
-
-  <!-- Campos: Ubicación e ID Conglomerado -->
-  <div class="row mb-3">
-    <div class="col-md-6">
-      <label for="ubicacionBrigada" class="form-label">Ubicación</label>
-      <select class="form-select" id="ubicacionBrigada" aria-describedby="ubicacionHelp">
-        <option value="">Selecciona una ubicación</option>
-        <option value="1">Ubicación 1</option>
-        <option value="2">Ubicación 2</option>
-        <option value="3">Ubicación 3</option>
-        <option value="4">Ubicación 4</option>
-        <option value="5">Ubicación 5</option>
-      </select>
-      <div id="ubicacionHelp" class="form-text">Elige la ubicación de la brigada.</div>
-    </div>
-    
-    <div class="col-md-6">
-      <label for="conglomerado" class="form-label">ID Conglomerado</label>
-      <input type="text" class="form-control" id="conglomerado" aria-describedby="conglomeradoHelp" required>
-      <div id="conglomeradoHelp" class="form-text">Escribe el ID del conglomerado.</div>
-    </div>
-  </div>
-
-  <!-- Campo: Descripción -->
-  <div class="row mb-3">
-    <div class="col-12">
-      <label for="descripcionBrigada" class="form-label">Descripción de la brigada</label>
-      <textarea class="form-control" id="descripcionBrigada" aria-describedby="descripcionHelp" rows="3" required></textarea>
-      <div id="descripcionHelp" class="form-text">Escribe una breve descripción de la brigada.</div>
-    </div>
-  </div>
-
-  <!-- Checkbox: Términos y condiciones -->
-  <div class="row mb-4">
-    <div class="col-12">
-      <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="terminos" required>
-        <label class="form-check-label" for="terminos">
-          Acepto los términos y condiciones del registro
-        </label>
-      </div>
-    </div>
-  </div>
-
-  <!-- Botones -->
-  <div class="row">
-    <div class="col-12">
-      <div class="d-flex gap-2 justify-content-end">
-        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#contactForm">Cancelar</button>
-        <button type="submit" class="btn btn-primary">Guardar Brigada</button>
-      </div>
-    </div>
-  </div>
-  
-  
-  </div>
-  
-
-  
-
-  <!-- Checkbox: Términos y condiciones -->
-  
-</form>
-          </div>
+    </section>
+    <!-- Sección 2: Funcionamiento del sistema -->
+    <section id="section2" class="container-fluid border border-3 rounded-3 p-4 my-5">
+        <div class="row">
+            <div class="col-12 text-left">
+                <h2 class="display-4 ">¿Cómo funciona el IFN Gestor de Brigadas?</h2>
+                <p class="lead">Solución integral para la gestión de brigadas forestales</p>
+                <!-- Lista de instrucciones -->
+                <ul class="fs-4">
+                    <li>Primero debes de iniciar sesión con tu usuario de IFN-Investigador principal.</li>
+                    <li>Una vez iniciada la sesión, podrás acceder a las diferentes funcionalidades del IFN Gestor de Brigadas.</li>
+                    <li>En la sección de "Listado de Conglomerados", podrás ver la lista de conglomerados y sus respectivas brigadas.</li>
+                    <li>También en el botón de "Crear Nueva brigada podrás acceder al formulario para rellenar y agregar una nueva brigada con todos sus respectivos datos".</li>
+                </ul>
+            </div>
         </div>
-      </div>
+    </section>
+    <!-- Botón para mostrar/ocultar formulario de creación de brigada -->
+    <div id="boton-crear" class="text-left my-4">
+        <!-- Botón Bootstrap grande para abrir formulario colapsable -->
+        <button type="button" class="btn btn-primary btn-lg px-4 py-3" data-bs-toggle="collapse" data-bs-target="#brigadaForm" aria-expanded="false" aria-controls="brigadaForm">
+            <span id="toggleText">Crear nueva brigada</span>
+        </button>
     </div>
-  </div>
-</div>
-
-
-<div class="row g-4">
-                <div class="col-lg-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title text-center mb-3">Brigadas Activas</h5>
-                            <div class="table-responsive">
-                                <table class="table table-sm brigadas-table">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Nombre</th>
-                                            <th>Estado</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><span class="badge bg-primary">BR001</span></td>
-                                            <td>Brigada Norte</td>
-                                            <td><span class="badge bg-success">Activa</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><span class="badge bg-primary">BR002</span></td>
-                                            <td>Brigada Sur</td>
-                                            <td><span class="badge bg-success">Activa</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><span class="badge bg-primary">BR003</span></td>
-                                            <td>Brigada Centro</td>
-                                            <td><span class="badge bg-warning">Pausa</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><span class="badge bg-primary">BR004</span></td>
-                                            <td>Brigada Oriente</td>
-                                            <td><span class="badge bg-success">Activa</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><span class="badge bg-primary">BR005</span></td>
-                                            <td>Brigada Occidente</td>
-                                            <td><span class="badge bg-success">Activa</span></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="text-center mt-3">
-                                <small class="text-muted">Total: 5 brigadas | 4 activas</small>
-                            </div>
+    <!-- Formulario colapsable para crear brigada, inicialmente oculto -->
+    <div class="collapse" id="brigadaForm">
+        <div class="container-fluid my-4">
+            <div class="row justify-content-left p-4">
+                <!-- Tarjeta responsiva para el formulario -->
+                <div class="col-md-10 col-lg-8 col-xl-6">
+                    <div class="card">
+                        <!-- Encabezado con título y botón de cerrar -->
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">Agregar nueva Brigada</h5>
+                            <button type="button" class="btn-close" data-bs-toggle="collapse" data-bs-target="#brigadaForm" aria-label="Cerrar formulario"></button>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Mapa de conglomerados</h5>
-                            <p class="card-text">Reportes detallados y análisis de datos</p>
-                            <div id="mapa-satelital" style="height: clamp(300px, 40vh, 600px); width: 100%; border-radius: 8px;"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card h-100">
                         <div class="card-body">
-                            <h5 class="card-title text-center mb-3">Conglomerados Activos</h5>
-                            <div class="table-responsive">
-                                <table class="table table-sm conglomerados-table">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Ubicación</th>
-                                            <th>Estado</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><span class="badge bg-info">CG001</span></td>
-                                            <td>Amazonas</td>
-                                            <td><span class="badge bg-success">Activo</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><span class="badge bg-info">CG002</span></td>
-                                            <td>Antioquia</td>
-                                            <td><span class="badge bg-success">Activo</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><span class="badge bg-info">CG003</span></td>
-                                            <td>Cundinamarca</td>
-                                            <td><span class="badge bg-danger">Inactivo</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><span class="badge bg-info">CG004</span></td>
-                                            <td>Valle del Cauca</td>
-                                            <td><span class="badge bg-success">Activo</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><span class="badge bg-info">CG005</span></td>
-                                            <td>Santander</td>
-                                            <td><span class="badge bg-warning">Mantenimiento</span></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="text-center mt-3">
-                                <small class="text-muted">Total: 5 conglomerados | 3 activos</small>
-                            </div>
+                            <!-- Formulario para crear brigada -->
+                            <form>
+                                <div class="row mb-3">
+                                    <div class="col-12 mb-3">
+                                        <label for="tituloBrigada" class="form-label">Título de la brigada</label>
+                                        <input type="text" class="form-control" id="tituloBrigada" aria-describedby="tituloHelp" required>
+                                        <div id="tituloHelp" class="form-text">Ingresa un nombre descriptivo para identificar la brigada.</div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <!-- Lista desplegable para jefe de brigada -->
+                                    <div class="col-md-6">
+                                        <label for="jefeBrigadista" class="form-label">Jefe brigadista</label>
+                                        <select class="form-select" id="jefeBrigadista" aria-describedby="jefeHelp" required>
+                                            <option value="">Selecciona un jefe</option>
+                                            <option value="1">Jefe 1</option>
+                                            <option value="2">Jefe 2</option>
+                                            <option value="3">Jefe 3</option>
+                                        </select>
+                                        <div id="jefeHelp" class="form-text">Selecciona al jefe de la brigada.</div>
+                                    </div>
+                                    <!-- Lista desplegable múltiple para integrantes -->
+                                    <div class="col-md-6">
+                                        <label for="integrantesBrigada" class="form-label">Integrantes de la brigada</label>
+                                        <select class="form-select" id="integrantesBrigada" aria-describedby="integrantesHelp" multiple required>
+                                            <option value="1">Investigador 1</option>
+                                            <option value="2">Investigador 2</option>
+                                            <option value="3">Investigador 3</option>
+                                            <option value="4">Investigador 4</option>
+                                            <option value="5">Investigador 5</option>
+                                        </select>
+                                        <div id="integrantesHelp" class="form-text">Elije los investigadores que conforman la brigada. Mantén presionado Ctrl para seleccionar múltiples integrantes.</div>
+                                    </div>
+                                </div>
+                                <!-- Campos: Ubicación e ID Conglomerado -->
+                                <div class="row mb-3">
+                                    <!-- Lista desplegable para ubicación -->
+                                    <div class="col-md-6">
+                                        <label for="ubicacionBrigada" class="form-label">Ubicación</label>
+                                        <select class="form-select" id="ubicacionBrigada" aria-describedby="ubicacionHelp">
+                                            <option value="">Selecciona una ubicación</option>
+                                            <option value="1">Ubicación 1</option>
+                                            <option value="2">Ubicación 2</option>
+                                            <option value="3">Ubicación 3</option>
+                                            <option value="4">Ubicación 4</option>
+                                            <option value="5">Ubicación 5</option>
+                                        </select>
+                                        <div id="ubicacionHelp" class="form-text">Elige la ubicación de la brigada.</div>
+                                    </div>
+                                    <!-- Campo para ID de conglomerado -->
+                                    <div class="col-md-6">
+                                        <label for="conglomerado" class="form-label">ID Conglomerado</label>
+                                        <input type="text" class="form-control" id="conglomerado" aria-describedby="conglomeradoHelp" required>
+                                        <div id="conglomeradoHelp" class="form-text">Escribe el ID del conglomerado.</div>
+                                    </div>
+                                </div>
+                                <!-- Campo: Descripción de la brigada -->
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <label for="descripcionBrigada" class="form-label">Descripción de la brigada</label>
+                                        <textarea class="form-control" id="descripcionBrigada" aria-describedby="descripcionHelp" rows="3" required></textarea>
+                                        <div id="descripcionHelp" class="form-text">Escribe una breve descripción de la brigada.</div>
+                                    </div>
+                                </div>
+                                <!-- Checkbox: Términos y condiciones -->
+                                <div class="row mb-4">
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="terminos" required>
+                                            <label class="form-check-label" for="terminos">Acepto los términos y condiciones del registro</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Botones: Cancelar y Guardar -->
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="d-flex gap-2 justify-content-end">
+                                            <!-- Botón para cerrar formulario -->
+                                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#brigadaForm">Cancelar</button>
+                                            <!-- Botón para enviar formulario -->
+                                            <button type="submit" class="btn btn-primary">Guardar Brigada</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
-
-    <!-- Footer Gubernamental Colombiano -->
-    <footer class="footer-gubernamental bg-dark text-white mt-5">
+    </div>
+    <!-- Sección de tarjetas: Brigadas, Mapa, Conglomerados -->
+    <div id="cards" class="row g-4">
+        <!-- Tarjeta: Brigadas Activas -->
+        <div class="col-lg-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <!-- Título de la tarjeta -->
+                    <h5 class="card-title text-center mb-3">Brigadas Activas</h5>
+                    <!-- Tabla responsiva para mostrar brigadas -->
+                    <div class="table-responsive">
+                        <table class="table table-sm brigadas-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Filas con datos de ejemplo -->
+                                <tr>
+                                    <td><span class="badge bg-primary">BR001</span></td>
+                                    <td>Brigada Norte</td>
+                                    <td><span class="badge bg-success">Activa</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge bg-primary">BR002</span></td>
+                                    <td>Brigada Sur</td>
+                                    <td><span class="badge bg-success">Activa</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge bg-primary">BR003</span></td>
+                                    <td>Brigada Centro</td>
+                                    <td><span class="badge bg-warning">Pausa</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge bg-primary">BR004</span></td>
+                                    <td>Brigada Oriente</td>
+                                    <td><span class="badge bg-success">Activa</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge bg-primary">BR005</span></td>
+                                    <td>Brigada Occidente</td>
+                                    <td><span class="badge bg-success">Activa</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Resumen de brigadas -->
+                    <div class="text-center mt-3">
+                        <small class="text-muted">Total: 5 brigadas | 4 activas</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mapa de conglomerados -->
+        <div class="col-lg-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Mapa de conglomerados</h5>
+                    <!-- Descripción del mapa -->
+                    <p class="card-text">Reportes detallados y análisis de datos</p>
+                    <div id="mapa-satelital" style="height: clamp(300px, 40vh, 600px); width: 100%; border-radius: 8px;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Conglomerados Activos -->
+        <div class="col-lg-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-center mb-3">Conglomerados Activos</h5>
+                    <div class="table-responsive">
+                        <table class="table table-sm conglomerados-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Ubicación</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Filas con datos de ejemplo -->
+                                <tr>
+                                    <td><span class="badge bg-info">CG001</span></td>
+                                    <td>Amazonas</td>
+                                    <td><span class="badge bg-success">Activo</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge bg-info">CG002</span></td>
+                                    <td>Antioquia</td>
+                                    <td><span class="badge bg-success">Activo</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge bg-info">CG003</span></td>
+                                    <td>Cundinamarca</td>
+                                    <td><span class="badge bg-danger">Inactivo</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge bg-info">CG004</span></td>
+                                    <td>Valle del Cauca</td>
+                                    <td><span class="badge bg-success">Activo</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge bg-info">CG005</span></td>
+                                    <td>Santander</td>
+                                    <td><span class="badge bg-warning">Mantenimiento</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Resumen de conglomerados -->
+                    <div class="text-center mt-3">
+                        <small class="text-muted">Total: 5 conglomerados | 3 activos</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Pie de página gubernamental -->
+    <footer id="footer" class="footer-gubernamental bg-dark text-white mt-5">
         <div class="container py-4">
             <div class="row">
-                <!-- Información Institucional -->
+                <!-- Información institucional del IDEAM -->
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="footer-section">
                         <h5 class="footer-title mb-3">
@@ -378,8 +386,7 @@
                         <p class="footer-text">Entidad del orden nacional adscrita al Ministerio de Ambiente y Desarrollo Sostenible</p>
                     </div>
                 </div>
-
-                <!-- Inventario Forestal Nacional -->
+                <!-- Información del Inventario Forestal Nacional -->
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="footer-section">
                         <h5 class="footer-title mb-3">Inventario Forestal Nacional (IFN)</h5>
@@ -391,8 +398,7 @@
                         </ul>
                     </div>
                 </div>
-
-                <!-- Enlaces Gubernamentales -->
+                <!-- Enlaces gubernamentales -->
                 <div class="col-lg-4 col-md-12 mb-4">
                     <div class="footer-section">
                         <h5 class="footer-title mb-3">Enlaces de Interés</h5>
@@ -406,8 +412,7 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Información de Contacto y Legal -->
+            <!-- Información de contacto y legal -->
             <div class="row border-top border-secondary pt-3 mt-3">
                 <div class="col-md-8">
                     <div class="footer-contact">
@@ -424,14 +429,13 @@
                             <a href="#" class="footer-link me-3">Términos de Uso</a>
                             <a href="#" class="footer-link me-3">Política de Privacidad</a>
                             <a href="#" class="footer-link">Mapa del Sitio</a>
-                            
                         </div>
+                        <!-- Logo adicional del Ministerio de Ambiente -->
                         <img class="footer-logo" src="img/ambiente.png" alt="IDEAM">
                     </div>
                 </div>
-              </div>
+            </div>
         </div>
     </footer>
-
 </body>
 </html>
