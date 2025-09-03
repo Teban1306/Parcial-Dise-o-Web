@@ -1,401 +1,662 @@
-/*vh= view port osea pantalla
-clamp= permite valores responsivos clamp(2rem, 5vw, 4rem) = mínimo 2rem, preferido 5% del viewport, máximo 4rem
-*/
+/* Estilos para el encabezado principal*/
 .hero-title {
+    /* Fondo blanco semitransparente para destacar el contenido */
     background-color: rgba(255, 255, 255, 0.8);
+    /* Altura mínima del 20% del viewport para responsividad */
     min-height: 20vh;
-    padding: 1.5rem;  /* root em, medida relativa que se basa en el tamaño fuente del elemento raiz*/
+    /* Padding basado en el tamaño de fuente raíz */
+    padding: 1.5rem;
 }
 
-.display-1{
-    font-size: clamp(2rem, 5vw, 4rem); /* Se adapta al tamaño de pantalla */
+/* Estilos para títulos grandes (Bootstrap) */
+.display-1 {
+    /* Tamaño de fuente responsivo: mínimo 2rem, preferido 5% del ancho del viewport, máximo 4rem */
+    font-size: clamp(2rem, 5vw, 4rem);
+    /* Peso de fuente grueso para destacar */
     font-weight: 600;
+    /* Altura de línea ajustada para legibilidad */
     line-height: 1.2;
 }
-.lead{
-    font-size: clamp(1rem, 3vw, 2rem); /* Se adapta al tamaño de pantalla */
+
+/* Estilos para texto destacado (Bootstrap) */
+.lead {
+    /* Tamaño de fuente responsivo: mínimo 1rem, preferido 3% del ancho del viewport, máximo 2rem */
+    font-size: clamp(1rem, 3vw, 2rem);
+    /* Peso de fuente ligero para contraste con títulos */
     font-weight: 200;
+    /* Altura de línea para legibilidad */
     line-height: 1.4;
 }
-#herotitle{
- color:#1a3009;
+
+/* Estilos específicos para el título del encabezado */
+#herotitle {
+    color: #1a3009;
 }
-#parrafo-hero{
+
+/* Estilos para el párrafo del encabezado */
+#parrafo-hero {
+    /* Tamaño de fuente responsivo: mínimo 1.5rem, preferido 3% del ancho del viewport, máximo 2.2rem */
     font-size: clamp(1.5rem, 3vw, 2.2rem);
     color: #1a3009;
 }
+
+/* Estilos para el carrusel de imágenes */
 .carousel {
-   width: 100%;/* 100% del viewport width */
-    margin:0; /* Centra el carrusel y lo extiende */
-    position: relative;
-  }
-  .carousel-inner {
-    height: 60vh;
-    min-height: 300px; /* Altura mínima para pantallas muy pequeñas */
-    max-height: 900px; /* Altura máxima para pantallas grandes */
-    overflow: hidden;
-  }
-  .carousel-item img {
+    /* Ocupa el 100% del ancho del viewport */
     width: 100%;
-    height: 900px;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  /* Estilos del navbar */
-  #navbar {
-    background-color: #1a3009 !important;
-    padding: 1.2rem;
-  }
-  
-  /* Estilos para el texto del navbar */
-  .navbar-brand {
-    color: white !important;
-  }
-  
-  .navbar-brand span {
-    color: white !important;
-  }
-  
- .nav-link {
-    color: white !important;
-    transition: all 0.3s ease;
-    padding: 0.5rem 1rem;
+    /* Sin márgenes para extenderse completamente */
+    margin: 0;
+    /* Posición relativa para controles del carrusel */
     position: relative;
 }
 
-.nav-link::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: #e0ff71;
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
+/* Contenedor interno del carrusel */
+.carousel-inner {
+    /* Altura del 60% del viewport con límites mínimo (300px) y máximo (900px) */
+    height: 60vh;
+    min-height: 300px;
+    max-height: 900px;
+    /* Evita desbordamiento de imágenes */
+    overflow: hidden;
 }
 
-.nav-link:hover {
-    color: #e0ff71 !important;
-    transform: translateY(-1px);
+/* imágenes del carrusel */
+.carousel-item img {
+    /* Ocupa el 100% del ancho del contenedor */
+    width: 100%;
+    /* Altura fija para consistencia */
+    height: 900px;
+    /* Ajusta la imagen para cubrir el contenedor sin distorsión */
+    object-fit: cover;
+    /* Centra la imagen */
+    object-position: center;
 }
 
-.nav-link:hover::before {
-    width: 80%;
+/* barra de navegación */
+#navbar {
+    background-color: #1a3009 !important;
+    /* espaciado interno */
+    padding: 1.2rem;
 }
-  
-  .navbar-toggler {
-    border-color: white;
 
-  }
-  
-  .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-  }
+/* marca del navbar */
+.navbar-brand {
+    /* Color blanco para el texto del logo */
+    color: white !important;
+}
 
-  .nav-item{
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
-  background-color: rgba(162, 187, 138, 0.5);
-  padding: 0.3rem 0.5rem;
-  border-radius: 1rem;
-  margin-right: clamp(0.5rem, 2vw, 2rem);
-  margin-bottom: 0.5rem;
-  font-weight: 450;
-  }
-  .nav-link{
-    color: #ffffff;
-  }
-
-/* Estilos para el navbar-brand */
+/* Estilos para el texto dentro de la marca */
 .navbar-brand span {
+    /* Color blanco para consistencia */
+    color: white !important;
+    /* Tamaño de fuente responsivo: mínimo 2rem, preferido 2.5% del ancho del viewport, máximo 1.5rem */
     font-size: clamp(2rem, 2.5vw, 1.5rem);
+    /* Peso de fuente medio */
     font-weight: 500;
+    /* Margen inferior para espaciado */
     margin-bottom: 1rem;
 }
 
+/* Estilos para los enlaces del navbar */
+.nav-link {
+    /* Color blanco para los enlaces */
+    color: white !important;
+    /* Transición suave para efectos de hover */
+    transition: all 0.3s ease;
+    /* Padding para espaciado interno */
+    padding: 0.5rem 1rem;
+    /* Posición relativa para pseudo-elementos */
+    position: relative;
+}
 
- #title1{
-  background-color: rgba(162, 187, 138, 0.8);
-  padding: 1rem;
-  border-radius: 1rem;
-  margin-left: 1rem;margin-right: 1rem;
-  color: #1a3009;
- }
- #text1{
-  padding: 1rem;
-  margin-left: 1rem;margin-right: 1rem; }
+/* Pseudo-elemento para línea decorativa bajo los enlaces */
+.nav-link::before {
+    /* Contenido vacío para la línea */
+    content: '';
+    /* Posición absoluta en la parte inferior */
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    /* Ancho inicial cero */
+    width: 0;
+    /* Altura de la línea */
+    height: 2px;
+    /* Color verde claro para la línea */
+    background: #e0ff71;
+    /* Transición suave */
+    transition: all 0.3s ease;
+    /* Centra la línea horizontalmente */
+    transform: translateX(-50%);
+}
 
-/* Estilos del formulario */
+/* Efecto hover para los enlaces del navbar */
+.nav-link:hover {
+    /* Cambia el color a verde claro */
+    color: #e0ff71 !important;
+    /* Eleva ligeramente el enlace */
+    transform: translateY(-1px);
+}
+
+/* Efecto hover para la línea decorativa */
+.nav-link:hover::before {
+    /* Expande la línea al 80% del ancho */
+    width: 80%;
+}
+
+/* Estilos para el botón hamburguesa del navbar */
+.navbar-toggler {
+    /* Borde blanco para el botón */
+    border-color: white;
+}
+
+/* Estilos para el ícono del botón hamburguesa */
+.navbar-toggler-icon {
+    /* Ícono personalizado en blanco con SVG incrustado */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Estilos para los ítems del navbar */
+.nav-item {
+    /* Tamaño de fuente responsivo: mínimo 1rem, preferido 2.5% del ancho del viewport, máximo 1.5rem */
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    /* Fondo verde claro semitransparente */
+    background-color: rgba(162, 187, 138, 0.5);
+    /* Padding para espaciado */
+    padding: 0.3rem 0.5rem;
+    /* Bordes redondeados */
+    border-radius: 1rem;
+    /* Margen derecho responsivo */
+    margin-right: clamp(0.5rem, 2vw, 2rem);
+    /* Margen inferior */
+    margin-bottom: 0.5rem;
+    /* Peso de fuente medio */
+    font-weight: 450;
+}
+
+/* Color blanco para los enlaces dentro de los ítems */
+.nav-link {
+    color: #ffffff;
+}
+
+/* Estilos para el título de la sección 1 */
+#title1 {
+    /* Fondo verde claro semitransparente */
+    background-color: rgba(162, 187, 138, 0.8);
+    /* Padding interno */
+    padding: 1rem;
+    /* Bordes redondeados */
+    border-radius: 1rem;
+    /* Márgenes laterales */
+    margin-left: 1rem;
+    margin-right: 1rem;
+    /* Color verde oscuro para el texto */
+    color: #1a3009;
+}
+
+/* Estilos para el texto de la sección 1 */
+#text1 {
+    /* Padding interno */
+    padding: 1rem;
+    /* Márgenes laterales */
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+/* Estilos para la tarjeta del formulario */
 .card {
+    /* Sin borde predeterminado */
     border: none;
+    /* Sombra suave para profundidad */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    /* Bordes redondeados */
     border-radius: 1rem;
 }
 
+/* Estilos para el encabezado de la tarjeta */
 .card-header {
+    /* Fondo verde oscuro */
     background-color: #1a3009;
+    /* Texto blanco */
     color: white;
+    /* Bordes redondeados en la parte superior */
     border-radius: 1rem 1rem 0 0 !important;
+    /* Sin borde */
     border: none;
 }
 
+/* Estilos para los campos de formulario (inputs y selects) */
 .form-control, .form-select {
+    /* Bordes redondeados */
     border-radius: 0.5rem;
+    /* Borde gris claro */
     border: 1px solid #e0e0e0;
+    /* Padding interno */
     padding: 0.75rem;
+    /* Transición suave para efectos de enfoque */
     transition: all 0.3s ease;
 }
 
+/* Estilos para los campos de formulario al enfocarse */
 .form-control:focus, .form-select:focus {
+    /* Borde verde oscuro al enfocar */
     border-color: #1a3009;
+    /* Sombra suave para indicar enfoque */
     box-shadow: 0 0 0 0.2rem rgba(26, 48, 9, 0.15);
 }
 
+/* Estilos para etiquetas de formulario */
 .form-label {
+    /* Peso de fuente grueso */
     font-weight: 600;
+    /* Color gris oscuro */
     color: #333;
+    /* Margen inferior */
     margin-bottom: 0.5rem;
 }
 
+/* Estilos para texto de ayuda en formularios */
 .form-text {
+    /* Tamaño de fuente pequeño */
     font-size: 0.85rem;
+    /* Color gris para texto secundario */
     color: #6c757d;
 }
 
+/* Estilos específicos para el área de texto de descripción */
 #descripcionBrigada {
+    /* Altura fija para consistencia */
     height: 60px;
 }
 
+/* Estilos para el botón principal (usado en el formulario y botón "Crear nueva brigada") */
 .btn-primary {
+    /* Gradiente de fondo verde oscuro */
     background: linear-gradient(135deg, #1a3009, #2d5016);
+    /* Sin borde */
     border: none;
+    /* Bordes redondeados */
     border-radius: 0.5rem;
+    /* Padding para tamaño */
     padding: 0.75rem 2rem;
+    /* Peso de fuente grueso */
     font-weight: 600;
+    /* Transición suave para efectos */
     transition: all 0.3s ease;
 }
 
+/* Efecto hover para el botón principal */
 .btn-primary:hover {
+    /* Gradiente invertido para interacción */
     background: linear-gradient(135deg, #2d5016, #1a3009);
+    /* Elevación ligera */
     transform: translateY(-1px);
+    /* Sombra para profundidad */
     box-shadow: 0 4px 12px rgba(26, 48, 9, 0.3);
 }
 
+/* Estilos para el botón secundario (Cancelar) */
 .btn-outline-secondary {
+    /* Borde gris */
     border-color: #6c757d;
+    /* Texto gris */
     color: #6c757d;
+    /* Bordes redondeados */
     border-radius: 0.5rem;
+    /* Padding para tamaño */
     padding: 0.75rem 2rem;
+    /* Peso de fuente grueso */
     font-weight: 600;
+    /* Transición suave */
     transition: all 0.3s ease;
 }
 
+/* Efecto hover para el botón secundario */
 .btn-outline-secondary:hover {
+    /* Fondo gris al pasar el ratón */
     background-color: #6c757d;
+    /* Borde gris consistente */
     border-color: #6c757d;
+    /* Elevación ligera */
     transform: translateY(-1px);
+    /* Sombra para profundidad */
     box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
 }
 
-/* Mejoras adicionales para el formulario */
+/* Estilos para el cuerpo de la tarjeta del formulario */
 .card-body {
+    /* Padding amplio para espaciado interno */
     padding: 2rem;
 }
 
-
-/* Espaciado mejorado para campos múltiples */
+/* Espaciado adicional para el último campo de formulario */
 .row.mb-3:last-of-type {
+    /* Margen inferior forzado para consistencia */
     margin-bottom: 1.5rem !important;
 }
+
+/* Estilos para el contenedor del botón "Crear nueva brigada" */
 #boton-crear {
+    /* Margen izquierdo para alineación */
     margin-left: 1rem;
 }
 
+/* Estilos para el botón dentro de #boton-crear */
 #boton-crear .btn {
+    /* Tamaño de fuente ligeramente mayor */
     font-size: 1.1rem;
+    /* Peso de fuente grueso */
     font-weight: 600;
+    /* Bordes redondeados */
     border-radius: 0.75rem;
+    /* Ancho mínimo para consistencia */
     min-width: 200px;
+    /* Transición suave */
     transition: all 0.3s ease;
 }
 
+/* Efecto hover para el botón "Crear nueva brigada" */
 #boton-crear .btn:hover {
+    /* Elevación más pronunciada */
     transform: translateY(-2px);
+    /* Sombra más intensa */
     box-shadow: 0 6px 20px rgba(26, 48, 9, 0.3);
 }
 
 /* Estilos para las tablas de brigadas y conglomerados */
 .brigadas-table, .conglomerados-table {
+    /* Tamaño de fuente pequeño para compactar */
     font-size: 0.85rem;
+    /* Sin margen inferior */
     margin-bottom: 0;
 }
 
+/* Estilos para los encabezados de las tablas */
 .brigadas-table thead th, .conglomerados-table thead th {
+    /* Fondo verde oscuro */
     background-color: #1a3009;
+    /* Texto blanco */
     color: white;
+    /* Sin borde */
     border: none;
+    /* Peso de fuente grueso */
     font-weight: 600;
+    /* Tamaño de fuente pequeño */
     font-size: 0.8rem;
+    /* Texto en mayúsculas */
     text-transform: uppercase;
+    /* Espaciado entre letras */
     letter-spacing: 0.5px;
+    /* Padding ajustado */
     padding: 0.75rem 0.5rem;
 }
 
+/* Estilos para las filas de las tablas */
 .brigadas-table tbody tr, .conglomerados-table tbody tr {
+    /* Borde inferior gris claro */
     border-bottom: 1px solid #e9ecef;
+    /* Transición suave para hover */
     transition: all 0.2s ease;
 }
 
+/* Efecto hover para las filas */
 .brigadas-table tbody tr:hover, .conglomerados-table tbody tr:hover {
+    /* Fondo verde claro semitransparente */
     background-color: rgba(162, 187, 138, 0.1);
+    /* Elevación ligera */
     transform: translateY(-1px);
 }
 
+/* Estilos para las celdas de las tablas */
 .brigadas-table tbody td, .conglomerados-table tbody td {
+    /* Padding ajustado */
     padding: 0.75rem 0.5rem;
+    /* Alineación vertical centrada */
     vertical-align: middle;
+    /* Sin borde */
     border: none;
 }
 
+/* Estilos para los badges dentro de las tablas */
 .brigadas-table .badge, .conglomerados-table .badge {
+    /* Tamaño de fuente pequeño */
     font-size: 0.7rem;
+    /* Padding ajustado */
     padding: 0.4rem 0.6rem;
+    /* Bordes redondeados */
     border-radius: 0.5rem;
+    /* Peso de fuente medio */
     font-weight: 500;
 }
 
 /* Colores personalizados para badges */
 .badge.bg-primary {
+    /* Verde oscuro para badges primarios */
     background-color: #1a3009 !important;
 }
 
 .badge.bg-info {
+    /* Cian para badges de información */
     background-color: #17a2b8 !important;
 }
 
 .badge.bg-success {
+    /* Verde para badges de éxito */
     background-color: #28a745 !important;
 }
 
 .badge.bg-warning {
+    /* Amarillo para badges de advertencia */
     background-color: #ffc107 !important;
+    /* Texto oscuro para legibilidad */
     color: #212529 !important;
 }
 
 .badge.bg-danger {
+    /* Rojo para badges de peligro */
     background-color: #dc3545 !important;
 }
 
-/* ===== FOOTER GUBERNAMENTAL COLOMBIANO ===== */
+/* Estilos para el footer gubernamental */
 .footer-gubernamental {
-    background-color:#333!important;
+    /* Fondo gris oscuro forzado */
+    background-color: #333 !important;
+    /* Borde superior verde claro */
     border-top: 3px solid #a2bb8a;
+    /* Se posiciona al final de la página */
     margin-top: auto;
 }
 
+/* Estilos para las secciones del footer */
 .footer-section {
+    /* Padding vertical ajustado */
     padding: 0.5rem 0;
 }
 
+/* Estilos para los títulos del footer */
 .footer-title {
+    /* Color verde claro */
     color: #a2bb8a;
+    /* Peso de fuente grueso */
     font-weight: 700;
+    /* Tamaño de fuente pequeño */
     font-size: 1.1rem;
+    /* Texto en mayúsculas */
     text-transform: uppercase;
+    /* Espaciado entre letras */
     letter-spacing: 0.5px;
+    /* Borde inferior verde claro */
     border-bottom: 2px solid #a2bb8a;
+    /* Padding inferior */
     padding-bottom: 0.5rem;
+    /* Margen inferior */
     margin-bottom: 1rem;
 }
 
+/* Estilos para el logo del footer */
 .footer-logo {
+    /* Altura de 4rem */
     height: 4rem;
+    /* Ancho automático */
     width: auto;
+    /* Aumenta el brillo para destacar */
     filter: brightness(1.2);
 }
 
+/* Estilos para el texto del footer */
 .footer-text {
+    /* Color verde claro claro */
     color: #e8f5e8;
+    /* Tamaño de fuente pequeño */
     font-size: 0.9rem;
+    /* Altura de línea para legibilidad */
     line-height: 1.5;
+    /* Margen inferior */
     margin-bottom: 0.75rem;
 }
 
+/* Estilos para la lista de enlaces del footer */
 .footer-links {
+    /* Sin márgenes */
     margin: 0;
+    /* Sin padding */
     padding: 0;
 }
 
+/* Espaciado para los ítems de la lista */
 .footer-links li {
+    /* Margen inferior */
     margin-bottom: 0.5rem;
 }
 
+/* Estilos para los enlaces del footer */
 .footer-link {
+    /* Color verde claro claro */
     color: #d4e6d4;
+    /* Sin subrayado */
     text-decoration: none;
+    /* Tamaño de fuente pequeño */
     font-size: 0.85rem;
+    /* Transición suave */
     transition: all 0.3s ease;
+    /* Posición relativa para pseudo-elementos */
     position: relative;
+    /* Padding izquierdo para el guion */
     padding-left: 1rem;
 }
 
+/* Pseudo-elemento para decorar enlaces con un guion */
 .footer-link:before {
+    /* Guion como contenido */
     content: "-";
+    /* Posición absoluta a la izquierda */
     position: absolute;
     left: 0;
+    /* Color verde claro */
     color: #a2bb8a;
+    /* Tamaño de fuente pequeño */
     font-size: 0.7rem;
+    /* Transición para animación */
     transition: transform 0.3s ease;
 }
 
+/* Efecto hover para los enlaces del footer */
 .footer-link:hover {
+    /* Cambia a verde claro */
     color: #a2bb8a;
+    /* Sin subrayado */
     text-decoration: none;
+    /* Desplazamiento a la derecha */
     transform: translateX(5px);
 }
 
+/* Efecto hover para el guion de los enlaces */
 .footer-link:hover:before {
+    /* Desplazamiento del guion */
     transform: translateX(3px);
 }
 
+/* Estilos para el texto de contacto en el footer */
 .footer-contact {
+    /* Tamaño de fuente pequeño */
     font-size: 0.85rem;
+    /* Color verde claro claro */
     color: #e8f5e8;
 }
 
+/* Estilos para etiquetas fuertes en el footer */
 .footer-contact strong {
+    /* Color verde claro */
     color: #a2bb8a;
+    /* Peso de fuente grueso */
     font-weight: 600;
 }
 
+/* Estilos para la sección legal del footer */
 .footer-legal {
+    /* Tamaño de fuente pequeño */
     font-size: 0.8rem;
+    /* Color verde claro claro */
     color: #d4e6d4;
 }
 
+/* Espaciado para los enlaces legales */
 .footer-legal-links {
+    /* Margen superior */
     margin-top: 0.5rem;
 }
 
+/* Estilos para los enlaces legales */
 .footer-legal-links .footer-link {
+    /* Tamaño de fuente más pequeño */
     font-size: 0.75rem;
+    /* Sin padding izquierdo */
     padding-left: 0;
 }
 
+/* Oculta el guion en los enlaces legales */
 .footer-legal-links .footer-link:before {
+    /* Sin guion */
     display: none;
 }
 
 
+/* Botones de navegación del carousel (anterior y siguiente) */
+.carousel-control-prev,
+.carousel-control-next {
+    /* Fondo verde semitransparente */
+    background-color: rgba(19, 136, 4, 0.6);
+    /* Bordes redondeados */
+    border-radius: 50%;
+    /* Ancho fijo */
+    width: 75px;
+    /* Alto fijo */
+    height: 75px;
+    /* Centrar verticalmente */
+    top: 50%;
+    /* Ajustar posición */
+    transform: translateY(-50%);
+    /* Borde blanco */
+    border: 2px solid #ffffff;
+}
 
 
 
+/* Iconos de los botones del carousel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    /* Tamaño del icono */
+    width: 50px;
+    height: 100px;
+}
 
 
+/*animaciones de las imagenes*/
 
-
- 
-
-
-
+#img-brigada,#img-conglomerado{
+    overflow: hidden;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+#img-brigada:hover,#img-conglomerado:hover{
+    transform: scale(1.05);
+    opacity: 0.8;
+}
