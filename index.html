@@ -67,50 +67,39 @@
             </div>
         </div>
     </header>
-    <!-- Carrusel Bootstrap que rota automáticamente con borde personalizado -->
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="border: 3px solid #1a3009;">
-        <!-- Indicadores para navegar entre imágenes -->
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Imagen 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Imagen 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Imagen 3"></button>
-        </div>
-        <!-- Contenedor de imágenes del carrusel -->
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="img/im1.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="img/im2.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="img/im3.jpeg" class="d-block w-100" alt="...">
+
+
+    <!--Ejemplo que quiero aplicar(daniela)-->
+<div class="container carousel-container">
+    <div class="slide">
+        <div class="item" style="background-image: url('img/im1.jpg');">
+            <div class="content">
+                <div class="name">¿Qué es el IDEAM?</div>
+                <div class="des">El IDEAM es el Instituto de Hidrología, Meteorología y Estudios Ambientales, encargado de monitorear y gestionar los recursos naturales de Colombia.</div>
             </div>
         </div>
-        <!-- Botón para navegar a la imagen anterior -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <!-- Botón para navegar a la imagen siguiente -->
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+        <div class="item" style="background-image: url('img/im2.jpg');">
+            <div class="content">
+                <div class="name">¿Qué es el IFN?</div>
+                <div class="des">El Inventario Forestal Nacional (IFN) es un proyecto del IDEAM para evaluar y monitorear los recursos forestales del país.</div>
+            </div>
+        </div>
+        <div class="item" style="background-image: url('img/im3.jpeg');">
+            <div class="content">
+                <div class="name">¿Por qué es importante?</div>
+                <div class="des">El IFN proporciona datos clave para la conservación, manejo sostenible de bosques y la toma de decisiones ambientales en Colombia.</div>
+            </div>
+        </div>
     </div>
-    <section id="section1" class="container-fluid border border-3 rounded-3 p-4 my-5">
-        <div class="row align-items-center mb-5">
-            <div class="col-lg-8 col-md-12">
-                <h2 id="title-conglomerado" class="display-4 text-center animate__animated animate__pulse animate__infinite">¿Qué es un conglomerado en el IFN?</h2>
-                <p id="text-conglomerado" class="lead fs-2">En el IFN, un conglomerado es la unidad de muestreo conformada por 5 subparcelas circulares de unos 15 m de radio, dispuestas en forma de cruz dentro de un polígono de 24 km × 24 km. Con un área total de ~0,35 ha (hectáreas), permite obtener estimaciones representativas sobre la vegetación, biomasa, diversidad y composición forestal del país.</p>
-            </div>
-            <div class="col-lg-4 col-md-12 text-center">
-                <img id="img-conglomerado" src="img/conglomerado.jpg" alt="Conglomerado" class="img-fluid rounded-3">
-            </div>
-        </div>
+    <div class="button">
+        <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
+        <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
         <!-- Separador visual -->
         <hr class="my-4">
-        
 
         <div class="row align-items-center">
             <div id="img-brigada" class="col-lg-4 col-md-12 text-center">
