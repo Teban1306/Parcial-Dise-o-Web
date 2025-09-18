@@ -97,3 +97,4 @@ document.addEventListener('DOMContentLoaded', () => {
         slide.prepend(items[items.length - 1]);
     });
 });
+// !Este es un better comment
