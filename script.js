@@ -71,9 +71,9 @@ document.addEventListener('DOMContentLoaded', function() {
       toggleText.textContent = 'Cancelar';
     });
     
-    // Cambiar texto del botón a "Crear nueva brigada" cuando el formulario se oculta
+    // Cambiar texto del botón a "Agregar nuevo conglomerado" cuando el formulario se oculta
     brigadaForm.addEventListener('hide.bs.collapse', function() {
-      toggleText.textContent = 'Crear nueva brigada';
+      toggleText.textContent = 'Agregar nuevo conglomerado';
     });
   }
   

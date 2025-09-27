@@ -789,3 +789,11 @@
     transform: scale(1.05);
     opacity: 0.8;
 }
+
+/* *estilo contenedor id del conglomerado */
+
+#idconglomerado {
+    border: 2px solid #a2bb8a;
+    border-radius: 5px;
+    padding: 10px;
+}

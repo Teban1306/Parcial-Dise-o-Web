@@ -135,7 +135,7 @@
     <div id="boton-crear" class="text-left my-4">
         <!-- Botón Bootstrap grande para abrir formulario colapsable -->
         <button type="button" class="btn btn-primary btn-lg px-4 py-3" data-bs-toggle="collapse" data-bs-target="#brigadaForm" aria-expanded="false" aria-controls="brigadaForm">
-            <span id="toggleText">Crear nueva brigada</span>
+            <span id="toggleText">Agregar nuevo conglomerado</span>
         </button>
     </div>
     <!-- Formulario colapsable para crear brigada, inicialmente oculto -->
@@ -143,21 +143,25 @@
         <div class="container-fluid my-4">
             <div class="row justify-content-left p-4">
                 <!-- Tarjeta responsiva para el formulario -->
-                <div class="col-md-10 col-lg-8 col-xl-6">
+                <div class="col-12">
                     <div class="card">
                         <!-- Encabezado con título y botón de cerrar -->
                         <div class="card-header d-flex justify-content-between align-items-center">
-                            <h5 class="mb-0">Agregar nueva Brigada</h5>
+                            <h5 class="mb-0">Nuevo conglomerado</h5>
                             <button type="button" class="btn-close" data-bs-toggle="collapse" data-bs-target="#brigadaForm" aria-label="Cerrar formulario"></button>
                         </div>
                         <div class="card-body">
-                            <!-- Formulario para crear brigada -->
+                            <!-- Formulario para crear conglomerado -->
                             <form>
                                 <div class="row mb-3">
                                     <div class="col-12 mb-3">
-                                        <label for="tituloBrigada" class="form-label">Título de la brigada</label>
-                                        <input type="text" class="form-control" id="tituloBrigada" aria-describedby="tituloHelp" required>
-                                        <div id="tituloHelp" class="form-text">Ingresa un nombre descriptivo para identificar la brigada.</div>
+                                        <button type="button" class="btn btn-primary btn-lg px-2 py-2">Generar conglomerado</button>
+                                        <label for="disabledTextInput" class="form-label">Id Conglomerado</label>
+                                            <input type="text" id="idconglomerado" class="form-control" placeholder="Este es el id del conglomerado" disabled>
+                                        <div>
+                                            
+                                        </div>
+                                        
                                     </div>
                                 </div>
                                 <div class="row mb-3">
