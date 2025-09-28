@@ -1,3 +1,33 @@
+/*Estilos para el Login(pantalla principal)*/
+
+.col-sm-6.text-black {
+  background-color: #f9f9f9; /* Fondo claro para contraste con la imagen */
+  padding: 2rem;
+}
+
+/* Botón verde */
+.btn-success {
+  background-color: #4caf50;
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-success:hover {
+  background-color: #388e3c;
+  transform: scale(1.05);
+}
+
+/* Inputs */
+.form-control {
+  border: 2px solid #c8e6c9;
+  transition: all 0.3s;
+}
+
+.form-control:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
 /* Estilos para el encabezado principal*/
 .hero-title {
     /* Fondo blanco semitransparente para destacar el contenido */
