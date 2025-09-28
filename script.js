@@ -176,3 +176,50 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Datos de ejemplo para los reportes
+const reportesEjemplo = {
+    bractivas: [
+        { id: 'B001', titulo: 'Brigada de recoleccion', descripcion: 'Brigada de recolección de datos en campo.' },
+        { id: 'B002', titulo: 'Brigada de investigacion', descripcion: 'Brigada de investigación de especies vegetales.' }
+    ],
+    brregistradas: [
+        { id: 'B002', titulo: 'Brigada de investigacion', descripcion: 'Brigada de investigación de especies vegetales.' }
+    ],
+    conregistrados: [
+        { id: 'CG-001', titulo: 'Conglomerado Generado', descripcion: 'Conglomerado generado mediante software. ' },
+        { id: 'CG-002', titulo: 'Conglomerado Generado', descripcion: 'Conglomerado generado mediante software. ' },
+        { id: 'CG-003', titulo: 'Conglomerado Generado', descripcion: 'Conglomerado generado mediante software. ' }
+    ]
+};
+
+// Función para renderizar los reportes según el filtro
+function renderizarReportes(tipo) {
+    const contenedor = document.getElementById('contenedorReportes');
+    contenedor.innerHTML = '';
+    const reportes = reportesEjemplo[tipo] || [];
+    if (reportes.length === 0) {
+        contenedor.innerHTML = '<p class="text-center text-muted">No hay reportes para este filtro.</p>';
+        return;
+    }
+    reportes.forEach(rep => {
+        const card = document.createElement('div');
+        card.className = 'alert alert-secondary mb-3';
+        card.innerHTML = `<strong>${rep.titulo}</strong><br><small>ID: ${rep.id}</small><br>${rep.descripcion}`;
+        contenedor.appendChild(card);
+    });
+}
+
+// Evento para el filtro de reportes
+document.addEventListener('DOMContentLoaded', function() {
+    const filtro = document.getElementById('filtroReporte');
+    if (filtro) {
+        renderizarReportes(filtro.value); // Mostrar el filtro inicial
+        filtro.addEventListener('change', function() {
+            renderizarReportes(this.value);
+        });
+    }
+});
+
+
+//!COORDINADOR REPORTES
