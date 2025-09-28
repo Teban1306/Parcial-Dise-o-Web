@@ -42,9 +42,6 @@
                         <a class="nav-link" href="#section1">Acerca del IFN</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#cards">Mapa</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="#cards">Listado de conglomerados</a>
                     </li>
                     <li class="nav-item">
@@ -243,126 +240,28 @@
             </div>
         </div>
     </div>
-    <!-- Sección de tarjetas: Brigadas, Mapa, Conglomerados -->
-    <div id="cards" class="row g-4">
-        <!-- Tarjeta: Brigadas Activas -->
-        <div class="col-lg-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <!-- Título de la tarjeta -->
-                    <h5 class="card-title text-center mb-3">Brigadas Activas</h5>
-                    <!-- Tabla responsiva para mostrar brigadas -->
-                    <div class="table-responsive">
-                        <table class="table table-sm brigadas-table">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nombre</th>
-                                    <th>Estado</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Filas con datos de ejemplo -->
-                                <tr>
-                                    <td><span class="badge bg-primary">BR001</span></td>
-                                    <td>Brigada Norte</td>
-                                    <td><span class="badge bg-success">Activa</span></td>
-                                </tr>
-                                <tr>
-                                    <td><span class="badge bg-primary">BR002</span></td>
-                                    <td>Brigada Sur</td>
-                                    <td><span class="badge bg-success">Activa</span></td>
-                                </tr>
-                                <tr>
-                                    <td><span class="badge bg-primary">BR003</span></td>
-                                    <td>Brigada Centro</td>
-                                    <td><span class="badge bg-warning">Pausa</span></td>
-                                </tr>
-                                <tr>
-                                    <td><span class="badge bg-primary">BR004</span></td>
-                                    <td>Brigada Oriente</td>
-                                    <td><span class="badge bg-success">Activa</span></td>
-                                </tr>
-                                <tr>
-                                    <td><span class="badge bg-primary">BR005</span></td>
-                                    <td>Brigada Occidente</td>
-                                    <td><span class="badge bg-success">Activa</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- Resumen de brigadas -->
-                    <div class="text-center mt-3">
-                        <small class="text-muted">Total: 5 brigadas | 4 activas</small>
-                    </div>
+    <!-- Sección de reportes -->
+    <div class="col-12">
+        <div class="card h-100">
+            <div class="card-body p-4">
+                <h5 class="card-title mb-3 text-start">Generar Reportes</h5>
+                <!-- Filtro de tipo de reporte -->
+                <div class="mb-3 text-start">
+                    <label for="filtroReporte" class="form-label pe-2.5">Tipo de reporte: </label>
+                    <select id="filtroReporte" class="form-select w-auto+1px d-inline-block">
+                        <option value="bractivas">Brigadas activas</option>
+                        <option value="brregistradas">Brigadas registradas</option>
+                        <option value="conregistrados">Conglomerados registrados</option>
+                    </select>
+                </div>
+                <!-- Contenedor de reportes alineado a la izquierda -->
+                <div id="contenedorReportes" class="text-start w-100">
+                    <!-- Aquí se mostrarán los reportes filtrados -->
                 </div>
             </div>
         </div>
-        
-        <!-- Conglomerados Activos -->
-        <div class="col-lg-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title text-center mb-3">Conglomerados Activos</h5>
-                    <div class="table-responsive">
-                        <table class="table table-sm conglomerados-table">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Ubicación</th>
-                                    <th>Estado</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Filas con datos de ejemplo -->
-                                <tr>
-                                    <td><span class="badge bg-info">CG001</span></td>
-                                    <td>Amazonas</td>
-                                    <td><span class="badge bg-success">Activo</span></td>
-                                </tr>
-                                <tr>
-                                    <td><span class="badge bg-info">CG002</span></td>
-                                    <td>Antioquia</td>
-                                    <td><span class="badge bg-success">Activo</span></td>
-                                </tr>
-                                <tr>
-                                    <td><span class="badge bg-info">CG003</span></td>
-                                    <td>Cundinamarca</td>
-                                    <td><span class="badge bg-danger">Inactivo</span></td>
-                                </tr>
-                                <tr>
-                                    <td><span class="badge bg-info">CG004</span></td>
-                                    <td>Valle del Cauca</td>
-                                    <td><span class="badge bg-success">Activo</span></td>
-                                </tr>
-                                <tr>
-                                    <td><span class="badge bg-info">CG005</span></td>
-                                    <td>Santander</td>
-                                    <td><span class="badge bg-warning">Mantenimiento</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- Resumen de conglomerados -->
-                    <div class="text-center mt-3">
-                        <small class="text-muted">Total: 5 conglomerados | 3 activos</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
     </div>
-    <!-- Mapa de conglomerados -->
-        <div class="col-lg-4">
-            <div class="container-fluid border border-3 rounded-3 p-4 my-5">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Mapa de conglomerados</h5>
-                    <!-- Descripción del mapa -->
-                    <p class="card-text">Reportes detallados y análisis de datos</p>
-                    <div id="mapa-satelital" style="height: clamp(300px, 40vh, 600px); width: 100%; border-radius: 8px;"></div>
-                </div>
-            </div>
-        </div>
+
     <!-- Pie de página gubernamental -->
     <footer id="footer" class="footer-gubernamental bg-dark text-white mt-5">
         <div class="container py-4">
