@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <!-- Configura la página para que se adapte al ancho del dispositivo -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +27,7 @@
             <a class="navbar-brand d-flex align-items-center">
                 <!-- Logo del IDEAM (márgenes para alineación) -->
                 <img src="img/ideam.png" alt="Logo IFN" style="height: 4rem; width: auto; margin-right: 2rem; margin-left: 2rem; margin-bottom: 1rem;">
-                <span>IFN Gestor de Brigadas</span>
+                <span>Portal de brigadista IFN - Cientifico</span>
             </a>
             <!-- Botón hamburguesa para colapsar menú -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,43 +61,41 @@
         <div class="container-fluid h-100 d-flex align-items-center my-6">
             <div class="row w-100">
                 <div class="col-12 text-center">
-                    <h1 id="herotitle" class="display-1 mb-3  animate__animated animate__zoomIn">Bienvenido a IFN Gestor de Brigadas</h1>
-                    <p id="parrafo-hero" class="lead mb-4 animate__animated animate__fadeInUp">Descubre nuestras herramientas y servicios para optimizar 
-                        la gestión de tu conglomerado.</p>
+                    <h1 id="herotitle" class="display-1 mb-3 animate__animated animate__zoomIn">Bienvenido a IFN Científico - 28/09/2025, 06:02 PM</h1>
+                    <p id="parrafo-hero" class="lead mb-4 animate__animated animate__fadeInUp">Optimiza tus brigadas con herramientas especializadas.</p>
                 </div>
             </div>
         </div>
     </header>
 
-
     <!--Ejemplo que quiero aplicar(daniela)-->
-<div class="container carousel-container">
-    <div class="slide">
-        <div class="item" style="background-image: url('img/im1.jpg');">
-            <div class="content">
-                <div class="name">¿Qué es el IDEAM?</div>
-                <div class="des">El IDEAM es el Instituto de Hidrología, Meteorología y Estudios Ambientales, encargado de monitorear y gestionar los recursos naturales de Colombia.</div>
+    <div class="container carousel-container">
+        <div class="slide">
+            <div class="item" style="background-image: url('img/im1.jpg');">
+                <div class="content">
+                    <div class="name">¿Qué es el IDEAM?</div>
+                    <div class="des">El IDEAM es el Instituto de Hidrología, Meteorología y Estudios Ambientales, encargado de monitorear y gestionar los recursos naturales de Colombia. Actualizado: 28/09/2025.</div>
+                </div>
+            </div><!-- ? Aplicados desde el javascript? -->
+            <div class="item" style="background-image: url('img/im2.jpg');">
+                <div class="content">
+                    <div class="name">¿Qué es el IFN?</div>
+                    <div class="des">El Inventario Forestal Nacional (IFN) es un proyecto del IDEAM para evaluar y monitorear los recursos forestales del país con enfoque científico. Datos actualizados: 180 conglomerados muestreados.</div>
+                </div>
             </div>
-        </div><!-- ? Aplicados desde el javascript? -->
-        <div class="item" style="background-image: url('img/im2.jpg');"><!-- ? Estos estilos de donde sale? Bootstrap -->
-            <div class="content">
-                <div class="name">¿Qué es el IFN?</div>
-                <div class="des">El Inventario Forestal Nacional (IFN) es un proyecto del IDEAM para evaluar y monitorear los recursos forestales del país.</div>
+            <div class="item" style="background-image: url('img/im3.jpeg');">
+                <div class="content">
+                    <div class="name">¿Por qué es importante?</div>
+                    <div class="des">El IFN proporciona datos clave para la conservación, manejo sostenible de bosques y la toma de decisiones ambientales en Colombia. 5 nuevas especies identificadas este mes.</div>
+                </div>
             </div>
         </div>
-        <div class="item" style="background-image: url('img/im3.jpeg');"><!-- ? Estos estilos de donde sale? Bootstrap -->
-            <div class="content">
-                <div class="name">¿Por qué es importante?</div>
-                <div class="des">El IFN proporciona datos clave para la conservación, manejo sostenible de bosques y la toma de decisiones ambientales en Colombia.</div>
-            </div>
+        <div class="button">
+            <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
     </div>
-    <div class="button">
-        <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
-        <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
-    </div>
-</div>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <!-- Separador visual -->
         <hr class="my-4">
@@ -107,11 +106,7 @@
             </div>
             <div class="col-lg-8 col-md-12 text-end">
                 <h2 id="title-brigada" class="display-4 text-center animate__animated animate__pulse animate__infinite">¿Qué es una brigada en el IFN?</h2>
-                <p id="text-brigada" class="lead fs-2">Una brigada forestal de campo es un equipo técnico 
-                    responsable de realizar el levantamiento de información dentro de los conglomerados definidos. 
-                    Generalmente está integrada por un jefe de brigada, un botánico, uno o varios técnicos forestales y 
-                    asistentes locales, quienes colectan datos estructurales (ej. diámetros, alturas), muestras botánicas, suelo y detritos 
-                    en cada subparcela, siguiendo protocolos estandarizados.</p>
+                <p id="text-brigada" class="lead fs-2">Una brigada forestal de campo es un equipo técnico responsable de realizar el levantamiento de información dentro de los conglomerados definidos. Generalmente está integrada por un jefe de brigada, un botánico, uno o varios técnicos forestales y asistentes locales, quienes colectan datos estructurales (ej. diámetros, alturas), muestras botánicas, suelo y detritos en cada subparcela, siguiendo protocolos estandarizados. Biomasa estimada: 250 t/ha - 28/09/2025.</p>
             </div>
         </div>
     </section>
@@ -124,9 +119,9 @@
                 <!-- Lista de instrucciones -->
                 <ul class="fs-4">
                     <li>Primero debes de iniciar sesión con tu usuario de IFN-Investigador principal.</li>
-                    <li>Una vez iniciada la sesión, podrás acceder a las diferentes funcionalidades del IFN Gestor de Brigadas.</li>
-                    <li>En la sección de "Listado de Conglomerados", podrás ver la lista de conglomerados y sus respectivas brigadas.</li>
-                    <li>También en el botón de "Crear Nueva brigada podrás acceder al formulario para rellenar y agregar una nueva brigada con todos sus respectivos datos".</li>
+                    <li>Una vez iniciada la sesión, podrás acceder a las diferentes funcionalidades del IFN Gestor de Brigadas, incluyendo análisis de biomasa y diversidad.</li>
+                    <li>En la sección de "Listado de Conglomerados", podrás ver la lista de conglomerados y sus respectivas brigadas. Total: 180 conglomerados muestreados.</li>
+                    <li>También en el botón de "Crear Nueva brigada podrás acceder al formulario para rellenar y agregar una nueva brigada con todos sus respectivos datos", como objetivos científicos.</li>
                 </ul>
             </div>
         </div>
@@ -167,6 +162,9 @@
                                             <input type="text" id="nombreBrigada" class="form-control pb-3" placeholder="Nombre de la brigada" required></input>
                                             <label for="disabledTextInput" class="form-label pt-1">Descripción</label>
                                             <input type="text"id="descripcionBrigada" class="form-control pb-3" placeholder="Descripción de la brigada" required></input>
+                                            <!-- Campo adicional para objetivo científico -->
+                                            <label for="objetivo" class="form-label pt-1">Objetivo Científico</label>
+                                            <input type="text" id="objetivo" class="form-control pb-3" placeholder="Ej. Muestreo de carbono - 28/09/2025" required>
                                     </div>
                                     <div class="col-6 mb-3">
                                         <div id="mapa-satelital" style="height: clamp(600px, 40vh, 600px); width: 100%; border-radius: 8px;"></div>
@@ -232,7 +230,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="badge bg-primary">BR005</span></td>
-                                    <td>Brigada Occidente</td>
+                                    <td>Brigada Occidente - Muestreo Biomasa</td>
                                     <td><span class="badge bg-success">Activa</span></td>
                                 </tr>
                             </tbody>
@@ -240,7 +238,7 @@
                     </div>
                     <!-- Resumen de brigadas -->
                     <div class="text-center mt-3">
-                        <small class="text-muted">Total: 5 brigadas | 4 activas</small>
+                        <small class="text-muted">Total: 5 brigadas | 4 activas - 28/09/2025</small>
                     </div>
                 </div>
             </div>
@@ -264,7 +262,7 @@
                                 <!-- Filas con datos de ejemplo -->
                                 <tr>
                                     <td><span class="badge bg-info">CG001</span></td>
-                                    <td>Amazonas</td>
+                                    <td>Amazonas - 250 t/ha</td>
                                     <td><span class="badge bg-success">Activo</span></td>
                                 </tr>
                                 <tr>
@@ -274,7 +272,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="badge bg-info">CG003</span></td>
-                                    <td>Cundinamarca</td>
+                                    <td>Cundinamarca - 5 spp nuevas</td>
                                     <td><span class="badge bg-danger">Inactivo</span></td>
                                 </tr>
                                 <tr>
@@ -292,26 +290,24 @@
                     </div>
                     <!-- Resumen de conglomerados -->
                     <div class="text-center mt-3">
-                        <small class="text-muted">Total: 5 conglomerados | 3 activos</small>
+                        <small class="text-muted">Total: 5 conglomerados | 3 activos - 28/09/2025</small>
                     </div>
                 </div>
             </div>
         </div>
         
-    </div>
-    <!-- Mapa de conglomerados -->
-    <!-- Tarjeta para el mapa 
-    <div class="col-lg-4">
+        <!-- Tarjeta para el mapa -->
+        <div class="col-lg-4">
             <div class="container-fluid border border-3 rounded-3 p-4 my-5">
                 <div class="card-body text-center">
                     <h5 class="card-title">Mapa de conglomerados</h5>
-                    <!-- Descripción del mapa 
-                    <p class="card-text">Reportes detallados y análisis de datos</p>
+                    <!-- Descripción del mapa -->
+                    <p class="card-text">Reportes detallados y análisis de datos. Actualización: 28/09/2025, 06:02 PM.</p>
                     <div id="mapa-satelital" style="height: clamp(300px, 40vh, 600px); width: 100%; border-radius: 8px;"></div>
                 </div>
             </div>
         </div>
-        -->
+    </div>
     <!-- Pie de página gubernamental -->
     <footer id="footer" class="footer-gubernamental bg-dark text-white mt-5">
         <div class="container py-4">
@@ -323,15 +319,14 @@
                             <img src="img/ideam.png" alt="IDEAM" class="footer-logo me-2">
                             IDEAM
                         </h5>
-                        <p class="footer-text">Instituto de Hidrología, Meteorología y Estudios Ambientales</p>
-                        <p class="footer-text">Entidad del orden nacional adscrita al Ministerio de Ambiente y Desarrollo Sostenible</p>
+                        <p class="footer-text">Instituto de Hidrología, Meteorología y Estudios Ambientales. Actualización: 28/09/2025.</p>
                     </div>
                 </div>
                 <!-- Información del Inventario Forestal Nacional -->
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="footer-section">
                         <h5 class="footer-title mb-3">Inventario Forestal Nacional (IFN)</h5>
-                        <p class="footer-text">Sistema de monitoreo y evaluación de los recursos forestales de Colombia</p>
+                        <p class="footer-text">Sistema de monitoreo y evaluación de los recursos forestales de Colombia con enfoque científico.</p>
                         <ul class="footer-links list-unstyled">
                             <li><a href="#" class="footer-link">Conglomerados Forestales</a></li>
                             <li><a href="#" class="footer-link">Brigadas de Campo</a></li>
@@ -365,7 +360,7 @@
                 </div>
                 <div class="col-md-4 text-md-end">
                     <div class="footer-legal">
-                        <p class="mb-1">© 2024 IDEAM - Todos los derechos reservados</p>
+                        <p class="mb-1">© 2025 IDEAM - Actualización: 28/09/2025, 06:02 PM</p>
                         <div class="footer-legal-links">
                             <a href="#" class="footer-link me-3">Términos de Uso</a>
                             <a href="#" class="footer-link me-3">Política de Privacidad</a>
