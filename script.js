@@ -1,4 +1,33 @@
 
+//script para confirmar el correo
+
+
+// Espera a que cargue el DOM antes de ejecutar
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("loginForm");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); // Evita que el formulario recargue la página
+
+    // Obtiene valores del formulario
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    // Validación de usuarios
+    if (email === "isabel@ideam.com" && password === "isabel123") {
+      // Redirige a la vista de Científico
+      window.location.href = "vistaCientifico.html";
+    } else if (email === "cris@ideam.com" && password === "cris123") {
+      // Redirige a la vista de Coordinador
+      window.location.href = "vistaCoordinador.html";
+    } else {
+      // Credenciales incorrectas
+      alert("Correo o contraseña incorrectos");
+    }
+  });
+});
+
+
 // Función para inicializar el mapa interactivo con Leaflet
 function inicializarMapa() {
   // Verificar que el elemento con ID 'mapa-satelital' existe en el DOM
