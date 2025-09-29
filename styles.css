@@ -493,33 +493,29 @@
     margin-bottom: 1.5rem !important;
 }
 
-/* Estilos para el contenedor del botón "Crear nueva brigada" */
-#boton-crear {
-    /* Margen izquierdo para alineación */
-    margin-left: 1rem;
-}
-
-/* Estilos para el botón dentro de #boton-crear */
-#boton-crear .btn {
-    /* Tamaño de fuente ligeramente mayor */
+/* Estilos generales para ambos botones */
+#boton-crear .btn,
+#boton-crear-brigadista .btn {
     font-size: 1.1rem;
-    /* Peso de fuente grueso */
     font-weight: 600;
-    /* Bordes redondeados */
     border-radius: 0.75rem;
-    /* Ancho mínimo para consistencia */
-    min-width: 200px;
-    /* Transición suave */
+    min-width: 220px;
+    padding: 12px 20px;
+    color: #fff;
+    border: none;
     transition: all 0.3s ease;
+    background: linear-gradient(145deg, #1b5e20, #145214); /* Verde oscuro */
 }
 
-/* Efecto hover para el botón "Crear nueva brigada" */
-#boton-crear .btn:hover {
-    /* Elevación más pronunciada */
+/* Hover igual para ambos */
+#boton-crear .btn:hover,
+#boton-crear-brigadista .btn:hover {
+    background: linear-gradient(145deg, #145214, #0d3b0d); /* Más oscuro al hover */
     transform: translateY(-2px);
-    /* Sombra más intensa */
-    box-shadow: 0 6px 20px rgba(26, 48, 9, 0.3);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
 }
+
+
 
 /* Estilos para las tablas de brigadas y conglomerados */
 .brigadas-table, .conglomerados-table {
@@ -797,7 +793,6 @@
     /* Borde blanco */
     border: 2px solid #ffffff;
 }
-
 
 
 /* Iconos de los botones del carousel */
