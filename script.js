@@ -111,6 +111,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if (brigadaForm && toggleText) {
         brigadaForm.addEventListener('show.bs.collapse', function() {
             toggleText.textContent = 'Cancelar';
+            // Invalida el tamaño del mapa cuando se abre el formulario
+            if (mapGlobal) {
+                setTimeout(function() {
+                    mapGlobal.invalidateSize();
+                }, 300);
+            }
         });
         
         brigadaForm.addEventListener('hide.bs.collapse', function() {
@@ -510,6 +516,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+// Genera coordenadas SOLO dentro de Colombia continental (rectángulo seguro sin mar)
+function randomEnRangoColombia() {
+    // Latitud: 1.5 (sur) a 11.2 (norte)
+    // Longitud: -76.9 (oeste) a -69.0 (este)
+    const lat = (Math.random() * (11.2 - 1.5) + 1.5).toFixed(6);
+    const lon = (Math.random() * (-69.0 + 76.9) - 76.9).toFixed(6);
+    return { lat, lon };
+}
+
 // Evento para el botón "Generar conglomerado"
 document.addEventListener('DOMContentLoaded', function() {
     const btnGenerar = document.querySelector('button.btn.btn-primary.btn-lg.px-2.py-2');
@@ -523,9 +538,10 @@ document.addEventListener('DOMContentLoaded', function() {
             inputId.value = `CG-${String(contadorConglomerado).padStart(3, '0')}`;
             contadorConglomerado++;
 
-            // Generar latitud y longitud aleatorias
-            inputLat.value = randomEnRango(-4.2, 13.4);
-            inputLon.value = randomEnRango(-79.0, 66.8);
+            // Generar coordenadas dentro del rectángulo seguro de Colombia
+            const coords = randomEnRangoColombia();
+            inputLat.value = coords.lat;
+            inputLon.value = coords.lon;
 
             // Agregar marcador al mapa si está inicializado
             if (mapGlobal) {
