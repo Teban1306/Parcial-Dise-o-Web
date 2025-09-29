@@ -66,8 +66,6 @@
     </header>
 
 
-
-    
     <!--Ejemplo que quiero aplicar(daniela)-->
 <div class="container carousel-container">
     <div class="slide">
@@ -129,6 +127,95 @@
             </div>
         </div>
     </section>
+<!-- Botón para abrir formulario de Brigadista -->
+<div id="boton-crear-brigadista" class="text-left my-4">
+  <button type="button" class="btn btn-lg px-4 py-3 btn-success" data-bs-toggle="collapse" data-bs-target="#brigadistaForm" aria-expanded="false" aria-controls="brigadistaForm">
+      <span id="toggleTextBrigadista">Crear nuevo brigadista</span>
+  </button>
+</div>
+
+<!-- Formulario colapsable para crear Brigadista -->
+<div class="collapse" id="brigadistaForm">
+  <div class="container-fluid my-4">
+    <div class="row justify-content-center p-4">
+      <div class="col-md-10 col-lg-8 col-xl-6">
+        <div class="card shadow">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Agregar nuevo Brigadista</h5>
+            <button type="button" class="btn-close" data-bs-toggle="collapse" data-bs-target="#brigadistaForm"></button>
+          </div>
+          <div class="card-body">
+            <form id="crearBrigadistaForm" novalidate>
+              
+              <!-- Tipo Documento -->
+              <div class="mb-3">
+                <label for="tipoDoc" class="form-label">Tipo de Documento</label>
+                <select class="form-select" id="tipoDoc" required>
+                  <option value="">Selecciona tipo</option>
+                  <option value="cc">Cédula de Ciudadanía</option>
+                  <option value="ce">Cédula de Extranjería</option>
+                  <option value="pasaporte">Pasaporte</option>
+                </select>
+                <div class="invalid-feedback">Por favor selecciona un tipo de documento.</div>
+              </div>
+
+              <!-- Número Documento -->
+              <div class="mb-3">
+                <label for="numDoc" class="form-label">Número de Documento</label>
+                <input type="text" class="form-control" id="numDoc" pattern="\d+" placeholder="ej: 10992312" required>
+                <div class="invalid-feedback">Ingresa un número válido.</div>
+              </div>
+
+              <!-- Nombres -->
+              <div class="mb-3">
+                <label for="nombres" class="form-label">Nombres</label>
+                <input type="text" class="form-control" id="nombres" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" placeholder="ej: Arley David" required>
+                <div class="invalid-feedback">Ingresa nombres válidos (solo letras).</div>
+              </div>
+
+              <!-- Apellidos -->
+              <div class="mb-3">
+                <label for="apellidos" class="form-label">Apellidos</label>
+                <input type="text" class="form-control" id="apellidos" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" placeholder="ej: Monsalve Benitez" required>
+                <div class="invalid-feedback">Ingresa apellidos válidos (solo letras).</div>
+              </div>
+
+              <!-- Rol -->
+              <div class="mb-3">
+                <label for="rol" class="form-label">Rol</label>
+                <select class="form-select" id="rol" required>
+                  <option value="">Selecciona rol</option>
+                  <option value="lider">Líder</option>
+                  <option value="coinvestigador">Co Investigador</option>
+                  <option value="tecnico">Técnico auxiliar</option>
+                  <option value="botanico">Botánico</option>
+                </select>
+                <div class="invalid-feedback">Selecciona un rol.</div>
+              </div>
+
+              <!-- Contacto -->
+              <div class="mb-3">
+                <label for="contacto" class="form-label">Contacto</label>
+                <input type="text" class="form-control" id="contacto" pattern="^\S+@\S+\.\S+|\d{7,15}$" placeholder="Teléfono o Email" required>
+                <div class="invalid-feedback">Ingresa un email o teléfono válido.</div>
+              </div>
+
+              <!-- Mensaje -->
+              <div id="brigadistaMessage" class="mt-2"></div>
+
+              <!-- Botones -->
+              <div class="d-flex gap-2 justify-content-end mt-3">
+                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#brigadistaForm">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Guardar Brigadista</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
     <!-- Botón para mostrar/ocultar formulario de creación de brigada -->
     <div id="boton-crear" class="text-left my-4">
         <!-- Botón Bootstrap grande para abrir formulario colapsable -->
@@ -136,110 +223,206 @@
             <span id="toggleText">Crear nueva brigada</span>
         </button>
     </div>
-    <!-- Formulario colapsable para crear brigada, inicialmente oculto -->
-    <div class="collapse" id="brigadaForm">
-        <div class="container-fluid my-4">
-            <div class="row justify-content-left p-4">
-                <!-- Tarjeta responsiva para el formulario -->
-                <div class="col-md-10 col-lg-8 col-xl-6">
-                    <div class="card">
-                        <!-- Encabezado con título y botón de cerrar -->
-                        <div class="card-header d-flex justify-content-between align-items-center">
-                            <h5 class="mb-0">Agregar nueva Brigada</h5>
-                            <button type="button" class="btn-close" data-bs-toggle="collapse" data-bs-target="#brigadaForm" aria-label="Cerrar formulario"></button>
-                        </div>
-                        <div class="card-body">
-                            <!-- Formulario para crear brigada -->
-                            <form>
-                                <div class="row mb-3">
-                                    <div class="col-12 mb-3">
-                                        <label for="tituloBrigada" class="form-label">Título de la brigada</label>
-                                        <input type="text" class="form-control" id="tituloBrigada" aria-describedby="tituloHelp" required>
-                                        <div id="tituloHelp" class="form-text">Ingresa un nombre descriptivo para identificar la brigada.</div>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <!-- Lista desplegable para jefe de brigada -->
-                                    <div class="col-md-6">
-                                        <label for="jefeBrigadista" class="form-label">Jefe brigadista</label>
-                                        <select class="form-select" id="jefeBrigadista" aria-describedby="jefeHelp" required>
-                                            <option value="">Selecciona un jefe</option>
-                                            <option value="1">Jefe 1</option>
-                                            <option value="2">Jefe 2</option>
-                                            <option value="3">Jefe 3</option>
-                                        </select>
-                                        <div id="jefeHelp" class="form-text">Selecciona al jefe de la brigada.</div>
-                                    </div>
-                                    <!-- Lista desplegable múltiple para integrantes -->
-                                    <div class="col-md-6">
-                                        <label for="integrantesBrigada" class="form-label">Integrantes de la brigada</label>
-                                        <select class="form-select" id="integrantesBrigada" aria-describedby="integrantesHelp" multiple required>
-                                            <option value="1">Investigador 1</option>
-                                            <option value="2">Investigador 2</option>
-                                            <option value="3">Investigador 3</option>
-                                            <option value="4">Investigador 4</option>
-                                            <option value="5">Investigador 5</option>
-                                        </select>
-                                        <div id="integrantesHelp" class="form-text">Elije los investigadores que conforman la brigada. Mantén presionado Ctrl para seleccionar múltiples integrantes.</div>
-                                    </div>
-                                </div>
-                                <!-- Campos: Ubicación e ID Conglomerado -->
-                                <div class="row mb-3">
-                                    <!-- Lista desplegable para ubicación -->
-                                    <div class="col-md-6">
-                                        <label for="ubicacionBrigada" class="form-label">Ubicación</label>
-                                        <select class="form-select" id="ubicacionBrigada" aria-describedby="ubicacionHelp">
-                                            <option value="">Selecciona una ubicación</option>
-                                            <option value="1">Ubicación 1</option>
-                                            <option value="2">Ubicación 2</option>
-                                            <option value="3">Ubicación 3</option>
-                                            <option value="4">Ubicación 4</option>
-                                            <option value="5">Ubicación 5</option>
-                                        </select>
-                                        <div id="ubicacionHelp" class="form-text">Elige la ubicación de la brigada.</div>
-                                    </div>
-                                    <!-- Campo para ID de conglomerado -->
-                                    <div class="col-md-6">
-                                        <label for="conglomerado" class="form-label">ID Conglomerado</label>
-                                        <input type="text" class="form-control" id="conglomerado" aria-describedby="conglomeradoHelp" required>
-                                        <div id="conglomeradoHelp" class="form-text">Escribe el ID del conglomerado.</div>
-                                    </div>
-                                </div>
-                                <!-- Campo: Descripción de la brigada -->
-                                <div class="row mb-3">
-                                    <div class="col-12">
-                                        <label for="descripcionBrigada" class="form-label">Descripción de la brigada</label>
-                                        <textarea class="form-control" id="descripcionBrigada" aria-describedby="descripcionHelp" rows="3" required></textarea>
-                                        <div id="descripcionHelp" class="form-text">Escribe una breve descripción de la brigada.</div>
-                                    </div>
-                                </div>
-                                <!-- Checkbox: Términos y condiciones -->
-                                <div class="row mb-4">
-                                    <div class="col-12">
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="terminos" required>
-                                            <label class="form-check-label" for="terminos">Acepto los términos y condiciones del registro</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Botones: Cancelar y Guardar -->
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="d-flex gap-2 justify-content-end">
-                                            <!-- Botón para cerrar formulario -->
-                                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#brigadaForm">Cancelar</button>
-                                            <!-- Botón para enviar formulario -->
-                                            <button type="submit" class="btn btn-primary">Guardar Brigada</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+<!-- Formulario colapsable para crear brigada -->
+<div class="collapse" id="brigadaForm">
+  <div class="container-fluid my-4">
+    <div class="row justify-content-center p-4">
+      
+      <!-- Columna del formulario (más grande que antes) -->
+      <div class="col-md-6 col-lg-5">
+        <div class="card shadow">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Agregar nueva Brigada</h5>
+            <button type="button" class="btn-close" data-bs-toggle="collapse" data-bs-target="#brigadaForm"></button>
+          </div>
+          <div class="card-body">
+            <form id="crearBrigadaForm" novalidate>
+              
+              <!-- ID Brigada -->
+<div class="mb-3">
+  <label for="idBrigada" class="form-label">ID de Brigada</label>
+  <input type="text" class="form-control" id="idBrigada" readonly>
+</div>
+
+              <!-- Líder -->
+              <div class="mb-3">
+                <label class="form-label">Líder de Brigada</label>
+                <select class="form-select" id="lider" required>
+                  <option value="">Selecciona líder</option>
+                  <option value="invest1">Líder 1</option>
+                  <option value="invest2">Líder 2</option>
+                  <option value="invest3">Líder 3</option>
+                </select>
+              </div>
+
+              <!-- Participantes -->
+              <div id="participantes-container" class="mb-3">
+                <label class="form-label">Participantes</label>
+                <div class="participante-row d-flex gap-2 mb-2">
+                  <select class="form-select participante-select" name="participantes[]">
+                    <option value="">Selecciona persona</option>
+                    <option value="invest1">Investigador 1</option>
+                    <option value="invest2">Investigador 2</option>
+                    <option value="invest3">Investigador 3</option>
+                  </select>
+                  <select class="form-select rol-select" name="roles[]">
+                    <option value="">Selecciona rol</option>
+                    <option value="tecnico">Técnico auxiliar</option>
+                    <option value="botanico">Botánico</option>
+                    <option value="coinvestigador">Co investigador</option>
+                  </select>
+                  <button type="button" class="btn btn-success btn-sm add-participante">+</button>
+                  <button type="button" class="btn btn-danger btn-sm remove-participante">-</button>
                 </div>
-            </div>
+              </div>
+
+              <!-- Conglomerado -->
+              <div class="mb-3">
+                <label for="conglomerado" class="form-label">Conglomerado</label>
+                <select class="form-select" id="conglomerado" required>
+                  <option value="">Selecciona un conglomerado</option>
+                  <option value="CG001">CG001 - Amazonas</option>
+                  <option value="CG002">CG002 - Antioquia</option>
+                  <option value="CG003">CG003 - Cundinamarca</option>
+                  <option value="CG003">CG004 - Valle del Cauca</option>
+                  <option value="CG003">CG005 - Santander</option>
+                </select>
+              </div>
+
+              <!-- Descripción -->
+              <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <textarea class="form-control" id="descripcion" rows="3" required></textarea>
+              </div>
+
+              <!-- Objetivo -->
+              <div class="mb-3">
+                <label for="objetivo" class="form-label">Objetivo</label>
+                <textarea class="form-control" id="objetivo" rows="3" required></textarea>
+              </div>
+
+              <!-- Mensaje -->
+              <div id="brigadaMessage" class="mt-2"></div>
+
+              <!-- Botones -->
+              <div class="d-flex gap-2 justify-content-end mt-3">
+                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#brigadaForm">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Guardar Brigada</button>
+              </div>
+            </form>
+          </div>
         </div>
-    </div>
+ </div>
+
+      <!-- Columna de tarjetas (más grande, a la derecha) -->
+      <div class="col-md-6 col-lg-7">
+        
+        <!-- Brigadas Activas -->
+        <div class="card mb-4 shadow">
+          <div class="card-body">
+            <h5 class="card-title text-center mb-3">Brigadas Activas</h5>
+            <div class="table-responsive">
+              <table class="table table-sm brigadas-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="badge bg-primary">BR001</span></td>
+                    <td>Brigada Norte</td>
+                    <td><span class="badge bg-success">Activa</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge bg-primary">BR002</span></td>
+                    <td>Brigada Sur</td>
+                    <td><span class="badge bg-success">Activa</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge bg-primary">BR003</span></td>
+                    <td>Brigada Centro</td>
+                    <td><span class="badge bg-warning">Pausa</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge bg-primary">BR004</span></td>
+                    <td>Brigada Oriente</td>
+                    <td><span class="badge bg-success">Activa</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge bg-primary">BR005</span></td>
+                    <td>Brigada Occidente</td>
+                    <td><span class="badge bg-success">Activa</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="text-center mt-3">
+              <small class="text-muted">Total: 5 brigadas | 4 activas</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Conglomerados Activos -->
+        <div class="card shadow">
+          <div class="card-body">
+            <h5 class="card-title text-center mb-3">Conglomerados Activos</h5>
+            <div class="table-responsive">
+              <table class="table table-sm conglomerados-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Ubicación</th>
+                    <th>Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="badge bg-info">CG001</span></td>
+                    <td>Amazonas</td>
+                    <td><span class="badge bg-success">Activo</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge bg-info">CG002</span></td>
+                    <td>Antioquia</td>
+                    <td><span class="badge bg-success">Activo</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge bg-info">CG003</span></td>
+                    <td>Cundinamarca</td>
+                    <td><span class="badge bg-danger">Inactivo</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge bg-info">CG004</span></td>
+                    <td>Valle del Cauca</td>
+                    <td><span class="badge bg-success">Activo</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge bg-info">CG005</span></td>
+                    <td>Santander</td>
+                    <td><span class="badge bg-warning">Mantenimiento</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="text-center mt-3">
+              <small class="text-muted">Total: 5 conglomerados | 3 activos</small>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- fin col tarjetas -->
+
+    </div> <!-- row -->
+  </div> <!-- container -->
+</div> <!-- collapse -->
+        
+        
+        
+        
+ </div>
     <!-- Sección de reportes -->
     <div class="col-12">
         <div class="card h-100">
@@ -261,7 +444,6 @@
             </div>
         </div>
     </div>
-
     <!-- Pie de página gubernamental -->
     <footer id="footer" class="footer-gubernamental bg-dark text-white mt-5">
         <div class="container py-4">

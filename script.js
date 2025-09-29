@@ -122,6 +122,363 @@ let contadorConglomerado = 1;
 function randomEnRango(min, max) {
     return (Math.random() * (max - min) + min).toFixed(6);
 }
+// coordinador dani
+// /Brigadista
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('crearBrigadistaForm');
+  if (!form) return console.warn('crearBrigadistaForm no encontrado');
+
+  const tipoDocInput = document.getElementById('tipoDoc');
+  const numDocInput = document.getElementById('numDoc');
+  const nombresInput = document.getElementById('nombres');
+  const apellidosInput = document.getElementById('apellidos');
+  const rolSelect = document.getElementById('rol');
+  const contactoInput = document.getElementById('contacto');
+  const messageDiv = document.getElementById('brigadistaMessage');
+
+  // Validación de patrones
+  const patterns = {
+    numDoc: /^\d+$/,
+    nombres: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/,
+    apellidos: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/,
+    contacto: /^(\d{7,15}|\S+@\S+\.\S+)$/
+  };
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    messageDiv.innerHTML = '';
+
+    const tipoDocVal = (tipoDocInput.value || '').trim();
+    const numDocVal = (numDocInput.value || '').trim();
+    const nombresVal = (nombresInput.value || '').trim();
+    const apellidosVal = (apellidosInput.value || '').trim();
+    const rolVal = (rolSelect.value || '').trim();
+    const contactoVal = (contactoInput.value || '').trim();
+
+    // Validaciones
+    if (!tipoDocVal || !numDocVal || !nombresVal || !apellidosVal || !rolVal || !contactoVal) {
+      messageDiv.innerHTML = '<div class="alert alert-danger">⚠️ Complete todos los campos.</div>';
+      return;
+    }
+
+    if (!patterns.numDoc.test(numDocVal)) {
+      messageDiv.innerHTML = '<div class="alert alert-danger">⚠️ Número de documento inválido.</div>';
+      return;
+    }
+
+    if (!patterns.nombres.test(nombresVal)) {
+      messageDiv.innerHTML = '<div class="alert alert-danger">⚠️ Nombres inválidos.</div>';
+      return;
+    }
+
+    if (!patterns.apellidos.test(apellidosVal)) {
+      messageDiv.innerHTML = '<div class="alert alert-danger">⚠️ Apellidos inválidos.</div>';
+      return;
+    }
+
+    if (!patterns.contacto.test(contactoVal)) {
+      messageDiv.innerHTML = '<div class="alert alert-danger">⚠️ Contacto inválido (teléfono o email).</div>';
+      return;
+    }
+
+    if (!window.confirm('¿Está seguro de guardar el brigadista?')) return;
+
+    const brigadista = {
+      tipoDoc: tipoDocVal,
+      numDoc: numDocVal,
+      nombres: nombresVal,
+      apellidos: apellidosVal,
+      rol: rolVal,
+      contacto: contactoVal,
+      creadoEn: new Date().toISOString()
+    };
+
+    // Guardar en localStorage
+    const stored = JSON.parse(localStorage.getItem('brigadistas') || '[]');
+    stored.push(brigadista);
+    localStorage.setItem('brigadistas', JSON.stringify(stored));
+
+    messageDiv.innerHTML = '<div class="alert alert-success">✅ Brigadista guardado correctamente.</div>';
+    form.reset();
+
+    // Colapsar formulario
+    const collapseEl = document.getElementById('brigadistaForm');
+    if (typeof bootstrap !== 'undefined' && collapseEl) {
+      const bs = bootstrap.Collapse.getInstance(collapseEl) || new bootstrap.Collapse(collapseEl, { toggle: false });
+      bs.hide();
+    }
+  });
+});
+
+
+//Brigada
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('crearBrigadaForm');
+  if (!form) return console.warn('crearBrigadaForm no encontrado');
+
+  const idInput = document.getElementById('idBrigada');
+  const genBtn = document.getElementById('generateIdBtn');
+  const liderSelect = document.getElementById('lider'); 
+  const participantesContainer = document.getElementById('participantes-container');
+  const conglomeradoSelect = document.getElementById('conglomerado');
+  const descripcionInput = document.getElementById('descripcion');
+  const objetivoInput = document.getElementById('objetivo');
+  const messageDiv = document.getElementById('brigadaMessage');
+
+  // crea una fila de participante
+  function createParticipantRow() {
+    const row = document.createElement('div');
+    row.className = 'participante-row d-flex gap-2 mb-2 align-items-start';
+    row.innerHTML = `
+      <select class="form-select participante-select" name="participantes[]">
+        <option value="">Selecciona persona</option>
+        <option value="invest1">Investigador 1</option>
+        <option value="invest2">Investigador 2</option>
+        <option value="invest3">Investigador 3</option>
+      </select>
+      <select class="form-select rol-select" name="roles[]">
+        <option value="">Selecciona rol</option>
+        <option value="tecnico">Técnico auxiliar</option>
+        <option value="botanico">Botánico</option>
+        <option value="coinvestigador">Coinvestigador</option>
+      </select>
+      <button type="button" class="btn btn-success btn-sm add-participante">+</button>
+      <button type="button" class="btn btn-danger btn-sm remove-participante">-</button>
+    `;
+    return row;
+  }
+
+  function initParticipants() {
+    if (!participantesContainer.querySelector('.participante-row')) {
+      participantesContainer.appendChild(createParticipantRow());
+    }
+  }
+
+  // Generar ID
+  genBtn.addEventListener('click', () => {
+    idInput.value = 'BRG-' + (Math.floor(1000 + Math.random() * 9000));
+    messageDiv.innerHTML = '';
+  });
+
+  // botones + y -
+  participantesContainer.addEventListener('click', (ev) => {
+    const t = ev.target;
+    if (t.classList.contains('add-participante')) {
+      participantesContainer.appendChild(createParticipantRow());
+      return;
+    }
+    if (t.classList.contains('remove-participante')) {
+      const row = t.closest('.participante-row');
+      const rows = participantesContainer.querySelectorAll('.participante-row');
+      if (rows.length > 1) row.remove();
+      else {
+        row.querySelector('.participante-select').value = '';
+        row.querySelector('.rol-select').value = '';
+      }
+      form.reset();
+    }
+  });
+
+  // Guardar brigada con validación
+  fm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    messageDiv.innerHTML = '';
+
+    const idVal = (idInput.value || '').trim();
+    const liderVal = (liderSelect.value || '').trim();
+    const conglomeradoVal = (conglomeradoSelect.value || '').trim();
+    const descVal = (descripcionInput.value || '').trim();
+    const objVal = (objetivoInput.value || '').trim();
+
+    if (!idVal || !liderVal || !conglomeradoVal || !descVal || !objVal) {
+      messageDiv.innerHTML = '<div class="alert alert-danger">⚠️ Complete ID, líder, conglomerado, descripción y objetivo.</div>';
+      return;
+    }
+
+    const partRows = participantesContainer.querySelectorAll('.participante-row');
+    if (partRows.length === 0) {
+      messageDiv.innerHTML = '<div class="alert alert-danger">⚠️ Agregue al menos un participante.</div>';
+      return;
+    }
+
+    for (const r of partRows) {
+      const persona = (r.querySelector('.participante-select').value || '').trim();
+      const rol = (r.querySelector('.rol-select').value || '').trim();
+      if (!persona || !rol) {
+        messageDiv.innerHTML = '<div class="alert alert-danger">⚠️ Cada participante necesita persona y rol.</div>';
+        return;
+      }
+    }
+
+    if (!window.confirm('¿Está seguro de guardar la brigada?')) return;
+
+    const brigada = {
+      id: idVal,
+      lider: liderVal,
+      conglomerado: conglomeradoVal,
+      descripcion: descVal,
+      objetivo: objVal,
+      participantes: Array.from(partRows).map(r => ({
+        persona: r.querySelector('.participante-select').value,
+        rol: r.querySelector('.rol-select').value
+      })),
+      creadoEn: new Date().toISOString()
+    };
+
+    const stored = JSON.parse(localStorage.getItem('brigadas') || '[]');
+    stored.push(brigada);
+    localStorage.setItem('brigadas', JSON.stringify(stored));
+
+    messageDiv.innerHTML = '<div class="alert alert-success">✅ Brigada guardada correctamente.</div>';
+    form.reset();
+    participantesContainer.innerHTML = '';
+    participantesContainer.appendChild(createParticipantRow());
+    idInput.value = '';
+
+    const collapseEl = document.getElementById('brigadaForm');
+    if (typeof bootstrap !== 'undefined' && collapseEl) {
+      const bs = bootstrap.Collapse.getInstance(collapseEl) || new bootstrap.Collapse(collapseEl, { toggle: false });
+      bs.hide();
+    }
+  });
+
+  initParticipants();
+});document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('crearBrigadaForm');
+  if (!form) return console.warn('crearBrigadaForm no encontrado');
+
+  const idInput = document.getElementById('idBrigada');
+  const liderSelect = document.getElementById('lider'); 
+  const participantesContainer = document.getElementById('participantes-container');
+  const conglomeradoSelect = document.getElementById('conglomerado');
+  const descripcionInput = document.getElementById('descripcion');
+  const objetivoInput = document.getElementById('objetivo');
+  const messageDiv = document.getElementById('brigadaMessage');
+  const collapseEl = document.getElementById('brigadaForm');
+
+  // Generar ID automáticamente al abrir el formulario
+  if (typeof bootstrap !== 'undefined' && collapseEl) {
+    collapseEl.addEventListener('show.bs.collapse', () => {
+      idInput.value = 'BRG-' + (Math.floor(1000 + Math.random() * 9000));
+      messageDiv.innerHTML = '';
+    });
+  }
+
+  // Crea una fila de participante
+  function createParticipantRow() {
+    const row = document.createElement('div');
+    row.className = 'participante-row d-flex gap-2 mb-2 align-items-start';
+    row.innerHTML = `
+      <select class="form-select participante-select" name="participantes[]">
+        <option value="">Selecciona persona</option>
+        <option value="invest1">Investigador 1</option>
+        <option value="invest2">Investigador 2</option>
+        <option value="invest3">Investigador 3</option>
+      </select>
+      <select class="form-select rol-select" name="roles[]">
+        <option value="">Selecciona rol</option>
+        <option value="tecnico">Técnico auxiliar</option>
+        <option value="botanico">Botánico</option>
+        <option value="coinvestigador">Coinvestigador</option>
+      </select>
+      <button type="button" class="btn btn-success btn-sm add-participante">+</button>
+      <button type="button" class="btn btn-danger btn-sm remove-participante">-</button>
+    `;
+    return row;
+  }
+
+  function initParticipants() {
+    if (!participantesContainer.querySelector('.participante-row')) {
+      participantesContainer.appendChild(createParticipantRow());
+    }
+  }
+
+  // Botones + y -
+  participantesContainer.addEventListener('click', (ev) => {
+    const t = ev.target;
+    if (t.classList.contains('add-participante')) {
+      participantesContainer.appendChild(createParticipantRow());
+      return;
+    }
+    if (t.classList.contains('remove-participante')) {
+      const row = t.closest('.participante-row');
+      const rows = participantesContainer.querySelectorAll('.participante-row');
+      if (rows.length > 1) row.remove();
+      else {
+        row.querySelector('.participante-select').value = '';
+        row.querySelector('.rol-select').value = '';
+      }
+    }
+  });
+
+  // Guardar brigada con validación
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    messageDiv.innerHTML = '';
+
+    const idVal = (idInput.value || '').trim();
+    const liderVal = (liderSelect.value || '').trim();
+    const conglomeradoVal = (conglomeradoSelect.value || '').trim();
+    const descVal = (descripcionInput.value || '').trim();
+    const objVal = (objetivoInput.value || '').trim();
+
+    if (!idVal || !liderVal || !conglomeradoVal || !descVal || !objVal) {
+      messageDiv.innerHTML = '<div class="alert alert-danger">⚠️ Complete ID, líder, conglomerado, descripción y objetivo.</div>';
+      return;
+    }
+
+    const partRows = participantesContainer.querySelectorAll('.participante-row');
+    if (partRows.length === 0) {
+      messageDiv.innerHTML = '<div class="alert alert-danger">⚠️ Agregue al menos un participante.</div>';
+      return;
+    }
+
+    for (const r of partRows) {
+      const persona = (r.querySelector('.participante-select').value || '').trim();
+      const rol = (r.querySelector('.rol-select').value || '').trim();
+      if (!persona || !rol) {
+        messageDiv.innerHTML = '<div class="alert alert-danger">⚠️ Cada participante necesita persona y rol.</div>';
+        return;
+      }
+    }
+
+    if (!window.confirm('¿Está seguro de guardar la brigada?')) return;
+
+    const brigada = {
+      id: idVal,
+      lider: liderVal,
+      conglomerado: conglomeradoVal,
+      descripcion: descVal,
+      objetivo: objVal,
+      participantes: Array.from(partRows).map(r => ({
+        persona: r.querySelector('.participante-select').value,
+        rol: r.querySelector('.rol-select').value
+      })),
+      creadoEn: new Date().toISOString()
+    };
+
+    const stored = JSON.parse(localStorage.getItem('brigadas') || '[]');
+    stored.push(brigada);
+    localStorage.setItem('brigadas', JSON.stringify(stored));
+
+    messageDiv.innerHTML = '<div class="alert alert-success">✅ Brigada guardada correctamente.</div>';
+    form.reset();
+    messageDiv.innerHTML = ''; // <-- limpia mensaje
+    participantesContainer.innerHTML = '';
+    participantesContainer.appendChild(createParticipantRow());
+
+    if (typeof bootstrap !== 'undefined' && collapseEl) {
+      const bs = bootstrap.Collapse.getInstance(collapseEl) || new bootstrap.Collapse(collapseEl, { toggle: false });
+      bs.hide();
+    }
+  });
+
+  initParticipants();
+});
+
+
+
+
 
 // Evento para el botón "Generar conglomerado"
 document.addEventListener('DOMContentLoaded', function() {
@@ -220,6 +577,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-
-
-//!COORDINADOR REPORTES
