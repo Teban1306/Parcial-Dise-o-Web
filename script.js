@@ -28,74 +28,110 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// Función para inicializar el mapa interactivo con Leaflet
-
 function inicializarMapa() {
-  const mapaElement = document.getElementById('mapa-satelital');
-  if (!mapaElement) {
-    console.error('Elemento mapa-satelital no encontrado');
-    return;
-  }
-
-  // Crear mapa centrado en Colombia
-  mapGlobal = L.map('mapa-satelital').setView([4.5709, -74.2973], 6);
-
-  // Capas base
-  var googleSat = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-      maxZoom: 20,
-      subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-      attribution: '© Google'
-  });
-  var esriSat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-      attribution: '© Esri, DigitalGlobe, GeoEye, Earthstar Geographics'
-  });
-
-  googleSat.addTo(mapGlobal);
-
-  var baseMaps = {
-      "Vista Satelital": googleSat,
-      "Esri Satelital": esriSat
-  };
-  L.control.layers(baseMaps).addTo(mapGlobal);
-
-  // Conglomerados iniciales
-  var conglomerados = [];
-
-  conglomerados.forEach(function(punto) {
-      var marker = L.marker(punto.coords).addTo(mapGlobal);
-      marker.bindPopup(`
-          <div class="text-center">
-              <h6><strong>${punto.nombre}</strong></h6>
-              <p>ID: ${punto.id}</p>
-              <small>Área: 0.35 ha</small><br>
-              <button class="btn btn-sm btn-success mt-1">Ver Detalles</button>
-          </div>
-      `);
-  });
-}
-
-
-// Ejecutar cuando el DOM (Data object model) esté completamente cargado
-document.addEventListener('DOMContentLoaded', function() {
-  // Seleccionar elementos del formulario colapsable y texto del botón
-  const brigadaForm = document.getElementById('brigadaForm');
-  const toggleText = document.getElementById('toggleText');
-  
-  // Verificar que los elementos existen antes de añadir eventos
-  if (brigadaForm && toggleText) {
-    // Cambiar texto del botón a "Cancelar" cuando el formulario se muestra (RF-003)
-    brigadaForm.addEventListener('show.bs.collapse', function() {
-      toggleText.textContent = 'Cancelar';
+    const mapaElement = document.getElementById('mapa-satelital');
+    if (!mapaElement) {
+        console.error('Elemento mapa-satelital no encontrado');
+        return;
+    }
+    
+    // Crear mapa centrado en Colombia
+    mapGlobal = L.map('mapa-satelital').setView([4.5709, -74.2973], 6);
+    
+    // OPCIÓN 1: Esri World Imagery (Satelital - MÁS CONFIABLE)
+    var esriSat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles © Esri',
+        maxZoom: 19
     });
     
-    // Cambiar texto del botón a "Agregar nuevo conglomerado" cuando el formulario se oculta
-    brigadaForm.addEventListener('hide.bs.collapse', function() {
-      toggleText.textContent = 'Agregar nuevo conglomerado';
+    // OPCIÓN 2: USGS (Satélite de EE.UU. - muy buena calidad)
+    var usgsSat = L.tileLayer('https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'USGS',
+        maxZoom: 16
     });
-  }
-  
-  // Inicializar el mapa con un retraso de 100ms para asegurar que el DOM esté listo
-  setTimeout(inicializarMapa, 100);
+    
+    // OPCIÓN 3: OpenTopoMap (combinación topo + satélite)
+    var openTopo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data: © OpenStreetMap, SRTM | Map style: © OpenTopoMap',
+        maxZoom: 17
+    });
+    
+    // OPCIÓN 4: Google Satellite (requiere más cuidado pero funciona)
+    var googleSat = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+        attribution: '© Google',
+        maxZoom: 20,
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+    });
+    
+    // OPCIÓN 5: Google Hybrid (satélite + etiquetas)
+    var googleHybrid = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+        attribution: '© Google',
+        maxZoom: 20,
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+    });
+    
+    // Añadir capa por defecto (Google Hybrid es excelente para trabajo forestal)
+    googleHybrid.addTo(mapGlobal);
+    
+    var baseMaps = {
+        "Satélite + Etiquetas": googleHybrid,
+        "Satélite Google": googleSat,
+        "Satélite Esri": esriSat,
+        "Topográfico": openTopo
+    };
+    
+    L.control.layers(baseMaps).addTo(mapGlobal);
+    
+    // Invalidar tamaño para asegurar carga correcta
+    setTimeout(function() {
+        mapGlobal.invalidateSize();
+    }, 400);
+    
+    // Conglomerados
+    var conglomerados = [];
+    
+    conglomerados.forEach(function(punto) {
+        var marker = L.marker(punto.coords).addTo(mapGlobal);
+        marker.bindPopup(`
+            <div class="text-center">
+                <h6><strong>${punto.nombre}</strong></h6>
+                <p>ID: ${punto.id}</p>
+                <small>Área: 0.35 ha</small><br>
+                <button class="btn btn-sm btn-success mt-1">Ver Detalles</button>
+            </div>
+        `);
+    });
+}
+
+// Ejecutar cuando el DOM esté completamente cargado
+document.addEventListener('DOMContentLoaded', function() {
+    const brigadaForm = document.getElementById('brigadaForm');
+    const toggleText = document.getElementById('toggleText');
+    
+    if (brigadaForm && toggleText) {
+        brigadaForm.addEventListener('show.bs.collapse', function() {
+            toggleText.textContent = 'Cancelar';
+            // Invalida el tamaño del mapa cuando se abre el formulario
+            if (mapGlobal) {
+                setTimeout(function() {
+                    mapGlobal.invalidateSize();
+                }, 300);
+            }
+        });
+        
+        brigadaForm.addEventListener('hide.bs.collapse', function() {
+            toggleText.textContent = 'Agregar nuevo conglomerado';
+            // Invalidar tamaño cuando se cierra el formulario
+            if (mapGlobal) {
+                setTimeout(function() {
+                    mapGlobal.invalidateSize();
+                }, 300);
+            }
+        });
+    }
+    
+    // Inicializar el mapa con delay mayor
+    setTimeout(inicializarMapa, 300);
 });
 
 //daniela//
@@ -480,6 +516,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+// Genera coordenadas SOLO dentro de Colombia continental (rectángulo seguro sin mar)
+function randomEnRangoColombia() {
+    // Latitud: 1.5 (sur) a 11.2 (norte)
+    // Longitud: -76.9 (oeste) a -69.0 (este)
+    const lat = (Math.random() * (11.2 - 1.5) + 1.5).toFixed(6);
+    const lon = (Math.random() * (-69.0 + 76.9) - 76.9).toFixed(6);
+    return { lat, lon };
+}
+
 // Evento para el botón "Generar conglomerado"
 document.addEventListener('DOMContentLoaded', function() {
     const btnGenerar = document.querySelector('button.btn.btn-primary.btn-lg.px-2.py-2');
@@ -493,9 +538,10 @@ document.addEventListener('DOMContentLoaded', function() {
             inputId.value = `CG-${String(contadorConglomerado).padStart(3, '0')}`;
             contadorConglomerado++;
 
-            // Generar latitud y longitud aleatorias
-            inputLat.value = randomEnRango(-4.2, 13.4);
-            inputLon.value = randomEnRango(-79.0, 66.8);
+            // Generar coordenadas dentro del rectángulo seguro de Colombia
+            const coords = randomEnRangoColombia();
+            inputLat.value = coords.lat;
+            inputLon.value = coords.lon;
 
             // Agregar marcador al mapa si está inicializado
             if (mapGlobal) {
@@ -559,11 +605,34 @@ function renderizarReportes(tipo) {
         contenedor.innerHTML = '<p class="text-center text-muted">No hay reportes para este filtro.</p>';
         return;
     }
-    reportes.forEach(rep => {
+
+    // Selecciona la imagen según el tipo de reporte
+    let imagen = 'graf1.jpeg';
+    if (tipo === 'brregistradas') imagen = 'graf2.jpeg';
+    if (tipo === 'conregistrados') imagen = 'graf3.jpeg';
+
+    reportes.forEach((rep, idx) => {
         const card = document.createElement('div');
-        card.className = 'alert alert-secondary mb-3';
-        card.innerHTML = `<strong>${rep.titulo}</strong><br><small>ID: ${rep.id}</small><br>${rep.descripcion}`;
+        card.className = 'alert alert-secondary mb-3 d-flex align-items-center';
+        card.innerHTML = `
+            <img src="img/${imagen}" alt="Gráfico ${imagen}" 
+                style="width:160px; height:auto; margin-right:24px; border-radius:8px; cursor:pointer;"
+                data-bs-toggle="modal" data-bs-target="#imgModal" data-img="img/${imagen}">
+            <div>
+                <strong>${rep.titulo}</strong><br>
+                <small>ID: ${rep.id}</small><br>
+                ${rep.descripcion}
+            </div>
+        `;
         contenedor.appendChild(card);
+    });
+
+    // Evento para mostrar la imagen en el modal
+    contenedor.querySelectorAll('img[data-bs-toggle="modal"]').forEach(img => {
+        img.addEventListener('click', function() {
+            const modalImg = document.getElementById('imgModalImg');
+            modalImg.src = this.getAttribute('data-img');
+        });
     });
 }
 
