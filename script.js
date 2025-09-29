@@ -605,11 +605,34 @@ function renderizarReportes(tipo) {
         contenedor.innerHTML = '<p class="text-center text-muted">No hay reportes para este filtro.</p>';
         return;
     }
-    reportes.forEach(rep => {
+
+    // Selecciona la imagen según el tipo de reporte
+    let imagen = 'graf1.jpeg';
+    if (tipo === 'brregistradas') imagen = 'graf2.jpeg';
+    if (tipo === 'conregistrados') imagen = 'graf3.jpeg';
+
+    reportes.forEach((rep, idx) => {
         const card = document.createElement('div');
-        card.className = 'alert alert-secondary mb-3';
-        card.innerHTML = `<strong>${rep.titulo}</strong><br><small>ID: ${rep.id}</small><br>${rep.descripcion}`;
+        card.className = 'alert alert-secondary mb-3 d-flex align-items-center';
+        card.innerHTML = `
+            <img src="img/${imagen}" alt="Gráfico ${imagen}" 
+                style="width:160px; height:auto; margin-right:24px; border-radius:8px; cursor:pointer;"
+                data-bs-toggle="modal" data-bs-target="#imgModal" data-img="img/${imagen}">
+            <div>
+                <strong>${rep.titulo}</strong><br>
+                <small>ID: ${rep.id}</small><br>
+                ${rep.descripcion}
+            </div>
+        `;
         contenedor.appendChild(card);
+    });
+
+    // Evento para mostrar la imagen en el modal
+    contenedor.querySelectorAll('img[data-bs-toggle="modal"]').forEach(img => {
+        img.addEventListener('click', function() {
+            const modalImg = document.getElementById('imgModalImg');
+            modalImg.src = this.getAttribute('data-img');
+        });
     });
 }
 
